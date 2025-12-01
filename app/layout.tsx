@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${personalData.name} | Full Stack Web Developer`,
     description: personalData.description,
-    images: [personalData.avatarUrl],
+    images: `${personalData.avatarUrl}`,
   },
   robots: {
     index: true,
