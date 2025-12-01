@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 import { personalData } from '@/data/data';
+import { Analytics } from '@vercel/analytics/next';
 import { Navbar } from '@/components/navbar';
 import { ThemeProvider } from '@/components/theme-provider';
 
@@ -51,6 +52,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
           <Navbar />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
