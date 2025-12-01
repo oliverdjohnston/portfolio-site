@@ -6,6 +6,7 @@
 body {
   font-family: var(--font-supreme), sans-serif;
   letter-spacing: var(--tracking-normal);
+  scroll-behavior: smooth;
 }
 
 :root {
