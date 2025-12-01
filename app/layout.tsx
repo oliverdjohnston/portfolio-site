@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
+import { Navbar } from '@/components/navbar';
 import { ThemeProvider } from '@/components/theme-provider';
 
 const supreme = localFont({
@@ -22,10 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en-GB" suppressHydrationWarning>
       <body
-        className={`${supreme.variable} "min-h-screen bg-background px-6", mx-auto max-w-2xl py-12 font-sans antialiased sm:py-24`}
+        className={`${supreme.variable} bg-background mx-auto min-h-screen max-w-2xl px-6 py-12 font-sans antialiased sm:py-24`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
+          <Navbar />
         </ThemeProvider>
       </body>
     </html>
