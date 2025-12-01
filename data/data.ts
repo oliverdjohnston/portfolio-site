@@ -6,7 +6,13 @@ export const personalData = {
   initials: 'ODJ',
   location: 'Leeds, United Kingdom',
   description: 'Full Stack Web Developer at Flaunt Digital',
-  summary: 'I am a full stack developer with a passion for building web applications.',
+  summary: (): string => {
+    const currentYear = new Date().getFullYear();
+    const startYear = 2023;
+    const yearsOfExperience = currentYear - startYear;
+
+    return `I'm a **full stack developer** at Flaunt Digital, focused on building performant, accessible web applications. I have **${yearsOfExperience} years** of experience. Outside work, I enjoy tech and gaming.`;
+  },
 } as const;
 
 export const navbarData = [{ href: '/', icon: Icons.home, label: 'Home' }] as const;
