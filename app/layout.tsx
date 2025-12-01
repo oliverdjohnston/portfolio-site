@@ -21,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-GB" suppressHydrationWarning>
-      <body className={`${supreme.variable} antialiased`}>
+      <body
+        className={`${supreme.variable} "min-h-screen bg-background px-6", mx-auto max-w-2xl py-12 font-sans antialiased sm:py-24`}
+      >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>
