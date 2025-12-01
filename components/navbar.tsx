@@ -1,13 +1,44 @@
 'use client';
 
 import Link from 'next/link';
-import { contactData, navbarData } from '@/data/data';
+import { navbarData } from '@/data/data';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { buttonVariants } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 
+function NavItem({ item }: { item: (typeof navbarData)[number] }) {
+  const Icon = item.icon;
+  const isExternal = item.type === 'contact' && item.href.startsWith('http');
+
+  return (
+    <Tooltip key={item.href}>
+      <TooltipTrigger asChild>
+        <Link
+          href={item.href}
+          target={isExternal ? '_blank' : undefined}
+          rel={isExternal ? 'noreferrer' : undefined}
+          className={cn(
+            buttonVariants({ variant: 'ghost', size: 'icon-lg' }),
+            'bg-background/40 text-primary hover:bg-secondary/20 hover:text-secondary cursor-pointer rounded-full backdrop-blur-xl transition-colors duration-200 ease-out'
+          )}
+        >
+          <Icon className="size-5" />
+          <span className="sr-only">{item.label}</span>
+        </Link>
+      </TooltipTrigger>
+      <TooltipContent>
+        <p>{item.label}</p>
+      </TooltipContent>
+    </Tooltip>
+  );
+}
+
 export function Navbar() {
+  const navItems = navbarData.filter((item) => item.type === 'nav');
+  const contactItems = navbarData.filter((item) => item.type === 'contact');
+
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 flex justify-center pb-4">
       <div className="bg-background/60 dark:bg-background/80 pointer-events-none fixed inset-x-0 bottom-0 h-16 to-transparent backdrop-blur-2xl [-webkit-mask-image:linear-gradient(to_top,black,transparent)]" />
@@ -19,62 +50,20 @@ export function Navbar() {
         )}
       >
         <div className="flex items-center gap-1">
-          {navbarData.map((item) => {
-            const Icon = item.icon;
-            return (
-              <Tooltip key={item.href}>
-                <TooltipTrigger asChild>
-                  <Link
-                    href={item.href}
-                    className={cn(
-                      buttonVariants({ variant: 'ghost', size: 'icon-lg' }),
-                      'bg-background/40 text-primary hover:bg-secondary/20 hover:text-secondary cursor-pointer rounded-full backdrop-blur-xl transition-colors duration-200 ease-out'
-                    )}
-                  >
-                    <Icon className="size-5" />
-                    <span className="sr-only">{item.label}</span>
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{item.label}</p>
-                </TooltipContent>
-              </Tooltip>
-            );
-          })}
+          {navItems.map((item) => (
+            <NavItem key={item.href} item={item} />
+          ))}
         </div>
 
-        <div className="bg-border/60 mx-1 h-6 w-px" />
+        <Separator orientation="vertical" className="bg-border/60 mx-1 h-6 w-px" />
 
         <div className="flex items-center gap-1">
-          {Object.entries(contactData.social)
-            .filter(([, social]) => social.navbar)
-            .map(([name, social]) => {
-              const Icon = social.icon;
-              return (
-                <Tooltip key={name}>
-                  <TooltipTrigger asChild>
-                    <Link
-                      href={social.url}
-                      target={social.url.startsWith('http') ? '_blank' : undefined}
-                      rel={social.url.startsWith('http') ? 'noreferrer' : undefined}
-                      className={cn(
-                        buttonVariants({ variant: 'ghost', size: 'icon-lg' }),
-                        'bg-background/30 text-primary hover:bg-secondary/20 hover:text-secondary cursor-pointer rounded-full backdrop-blur-xl transition-colors duration-200 ease-out'
-                      )}
-                    >
-                      <Icon className="size-5" />
-                      <span className="sr-only">{social.name}</span>
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>{social.name}</p>
-                  </TooltipContent>
-                </Tooltip>
-              );
-            })}
+          {contactItems.map((item) => (
+            <NavItem key={item.href} item={item} />
+          ))}
         </div>
 
-        <div className="bg-border/60 mx-1 h-6 w-px" />
+        <Separator orientation="vertical" className="bg-border/60 mx-1 h-6 w-px" />
 
         <ThemeToggle />
       </div>
