@@ -1,11 +1,10 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-
-import { buttonVariants } from '@/components/ui/button';
-import { Icons } from '@/components/icons';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { cn } from '@/lib/utils';
+import { Icons } from '@/components/icons';
+import { buttonVariants } from '@/components/ui/button';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -27,7 +26,7 @@ export function ThemeToggle() {
           onClick={handleToggle}
           className={cn(
             buttonVariants({ variant: 'ghost', size: 'icon-lg' }),
-            'relative cursor-pointer rounded-full bg-background/40 text-primary backdrop-blur-xl transition-colors duration-200 ease-out hover:bg-secondary/20 hover:text-secondary'
+            'bg-background/40 text-primary hover:bg-secondary/20 hover:text-secondary relative cursor-pointer rounded-full backdrop-blur-xl transition-colors duration-200 ease-out'
           )}
         >
           <SunIcon className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
@@ -41,4 +40,3 @@ export function ThemeToggle() {
     </Tooltip>
   );
 }
-

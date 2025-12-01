@@ -1,5 +1,14 @@
 import { Icons } from '@/components/icons';
 
+export const personalData = {
+  name: 'Oliver Dean Johnston',
+  avatarUrl: '/images/me.avif',
+  initials: 'ODJ',
+  location: 'Leeds, United Kingdom',
+  description: 'Full Stack Web Developer at Flaunt Digital',
+  summary: 'I am a full stack developer with a passion for building web applications.',
+} as const;
+
 export const navbarData = [{ href: '/', icon: Icons.home, label: 'Home' }] as const;
 
 export const contactData = {
