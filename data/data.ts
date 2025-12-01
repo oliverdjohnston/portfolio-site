@@ -3,24 +3,22 @@ import { Icons } from '@/components/icons';
 export const navbarData = [{ href: '/', icon: Icons.home, label: 'Home' }] as const;
 
 export const contactData = {
-  email: 'hello@example.com',
-  tel: '+123456789',
   social: {
     GitHub: {
       name: 'GitHub',
-      url: 'https://github.com/',
+      url: 'https://github.com/oliverdjohnston',
       icon: Icons.github,
       navbar: true,
     },
     LinkedIn: {
       name: 'LinkedIn',
-      url: 'https://linkedin.com/',
+      url: 'https://www.linkedin.com/in/oliver-dean-johnston-50096b243/',
       icon: Icons.linkedin,
       navbar: true,
     },
     Email: {
       name: 'Email',
-      url: 'mailto:you@example.com',
+      url: 'mailto:oliverdeanjohnson@gmail.com',
       icon: Icons.email,
       navbar: true,
     },
