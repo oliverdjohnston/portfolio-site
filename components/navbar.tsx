@@ -10,17 +10,14 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip
 export function Navbar() {
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 flex justify-center pb-4">
-      {/* Faded background at the very bottom for a subtle dock effect */}
       <div className="bg-background/60 dark:bg-background/80 pointer-events-none fixed inset-x-0 bottom-0 h-16 to-transparent backdrop-blur-2xl [-webkit-mask-image:linear-gradient(to_top,black,transparent)]" />
 
-      {/* Main pill navbar */}
       <div
         className={cn(
           'border-border/40 bg-card/80 pointer-events-auto relative flex w-auto max-w-2xl items-center gap-1 rounded-full border px-3 py-1.5 backdrop-blur-2xl',
           'dark:border-border/60 dark:bg-card/70 dark:shadow-md'
         )}
       >
-        {/* Primary nav icons */}
         <div className="flex items-center gap-1">
           {navbarData.map((item) => {
             const Icon = item.icon;
@@ -46,10 +43,8 @@ export function Navbar() {
           })}
         </div>
 
-        {/* Divider line */}
         <div className="bg-border/60 mx-1 h-6 w-px" />
 
-        {/* Social icons */}
         <div className="flex items-center gap-1">
           {Object.entries(contactData.social)
             .filter(([, social]) => social.navbar)
@@ -79,10 +74,8 @@ export function Navbar() {
             })}
         </div>
 
-        {/* Divider line */}
         <div className="bg-border/60 mx-1 h-6 w-px" />
 
-        {/* Theme toggle */}
         <ThemeToggle />
       </div>
     </div>
