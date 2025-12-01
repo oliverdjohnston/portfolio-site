@@ -26,3 +26,25 @@ export const navbarData = [
   },
   { type: 'contact' as const, href: 'mailto:oliverdeanjohnson@gmail.com', icon: Icons.email, label: 'Email' },
 ] as const;
+
+export const experiencesData = [
+  {
+    company: 'Flaunt Digital',
+    location: 'Leeds',
+    title: 'Apprentice Web Developer',
+    logoUrl: '/images/flaunt-digital.jpg',
+    start: 'October 2023',
+    end: 'October 2024',
+    description: ['placeholder description'],
+  },
+
+  {
+    company: 'Flaunt Digital',
+    location: 'Leeds',
+    title: 'Junior Web Developer',
+    logoUrl: '/images/flaunt-digital.jpg',
+    start: 'October 2024',
+    end: 'Present',
+    description: ['placeholder description'],
+  },
+] as const;
