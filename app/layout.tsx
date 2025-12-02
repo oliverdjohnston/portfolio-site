@@ -13,6 +13,7 @@ const supreme = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL as string),
   title: {
     default: `${personalData.name} | Full Stack Web Developer`,
     template: `%s | ${personalData.name}`,
