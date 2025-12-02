@@ -1,9 +1,9 @@
 'use client';
 
-import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { FaChevronRight } from 'react-icons/fa6';
 import { AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Avatar } from '@/components/ui/avatar';
 
 interface ResumeItemProps {
   logoUrl: string;
@@ -28,9 +28,7 @@ export function ResumeItem({ logoUrl, altText, company, title, start, end, descr
         >
           <div className="flex w-full items-center gap-4">
             <div className="flex-none">
-              <div className="bg-muted-background dark:bg-foreground flex size-12 items-center justify-center overflow-hidden rounded-full border">
-                <Image src={logoUrl} alt={altText} width={48} height={48} className="object-contain" />
-              </div>
+              <Avatar src={logoUrl} alt={altText} size={48} className="size-12" />
             </div>
             <div className="flex min-w-0 grow items-center justify-between gap-x-2">
               <div className="flex min-w-0 flex-col">
@@ -66,9 +64,7 @@ export function ResumeItem({ logoUrl, altText, company, title, start, end, descr
   return (
     <div className="flex gap-4">
       <div className="flex-none">
-        <div className="bg-muted-background dark:bg-foreground flex size-12 items-center justify-center overflow-hidden rounded-full border">
-          <Image src={logoUrl} alt={altText} width={48} height={48} className="object-contain" />
-        </div>
+        <Avatar src={logoUrl} alt={altText} size={48} className="size-12" />
       </div>
       <div className="flex min-w-0 grow items-center justify-between gap-x-2">
         <div className="flex min-w-0 flex-col">

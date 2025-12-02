@@ -1,5 +1,5 @@
 import { personalData } from '@/data/data';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar } from '@/components/ui/avatar';
 
 export function Hero() {
   return (
@@ -12,10 +12,12 @@ export function Hero() {
           <p className="text-pretty md:text-xl">{personalData.description}</p>
           <p className="text-muted-foreground text-sm">{personalData.location}</p>
         </div>
-        <Avatar className="border-secondary size-24 shrink-0 border-2 sm:size-28">
-          <AvatarImage alt={personalData.name} src={personalData.avatarUrl} />
-          <AvatarFallback>{personalData.initials}</AvatarFallback>
-        </Avatar>
+        <Avatar
+          src={personalData.avatarUrl}
+          initials={personalData.initials}
+          alt={personalData.name}
+          className="border-secondary size-24 shrink-0 border-2 sm:size-28"
+        />
       </div>
     </section>
   );
