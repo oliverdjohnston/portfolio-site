@@ -28,22 +28,24 @@ export function ResumeItem({ logoUrl, altText, company, title, start, end, descr
         >
           <div className="flex w-full items-center gap-4">
             <div className="flex-none">
-              <Avatar src={logoUrl} alt={altText} size={48} className="size-12" />
+              <Avatar src={logoUrl} alt={altText} className="size-12" />
             </div>
             <div className="flex min-w-0 grow items-center justify-between gap-x-2">
               <div className="flex min-w-0 flex-col">
-                <h3 className="text-xs leading-none font-semibold sm:text-sm">{company}</h3>
+                <div className="flex items-center gap-1.5">
+                  <h3 className="text-xs leading-none font-semibold sm:text-sm">{company}</h3>
+                  <FaChevronRight
+                    className={cn(
+                      'pointer-events-none size-3 shrink-0 transition-all duration-200',
+                      'text-black dark:text-white',
+                      'opacity-0 group-hover:opacity-100'
+                    )}
+                  />
+                </div>
                 <div className="text-muted-foreground mt-1 font-sans text-xs">{title}</div>
               </div>
               <div className="text-muted-foreground shrink-0 text-right text-xs tabular-nums sm:text-sm">{period}</div>
             </div>
-            <FaChevronRight
-              className={cn(
-                'pointer-events-none size-3 shrink-0 transition-all duration-200',
-                'text-black dark:text-white',
-                'opacity-0 group-hover:opacity-100'
-              )}
-            />
           </div>
         </AccordionTrigger>
         <AccordionContent className="transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
@@ -64,7 +66,7 @@ export function ResumeItem({ logoUrl, altText, company, title, start, end, descr
   return (
     <div className="flex gap-4">
       <div className="flex-none">
-        <Avatar src={logoUrl} alt={altText} size={48} className="size-12" />
+        <Avatar src={logoUrl} alt={altText} className="size-12" />
       </div>
       <div className="flex min-w-0 grow items-center justify-between gap-x-2">
         <div className="flex min-w-0 flex-col">
