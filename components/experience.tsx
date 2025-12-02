@@ -7,7 +7,7 @@ import { Accordion } from '@/components/ui/accordion';
 export function Experience() {
   return (
     <section id="experience">
-      <h2 className="mb-4 text-xl font-bold">Experience</h2>
+      <h2 className="mb-4 text-xl font-bold text-primary">Work Experience</h2>
       <Accordion type="single" collapsible className="w-full">
         {experiencesData.toReversed().map((experience) => (
           <ResumeItem

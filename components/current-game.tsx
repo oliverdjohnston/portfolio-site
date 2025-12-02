@@ -53,7 +53,7 @@ export async function CurrentGame() {
   return (
     <section id="current-game">
       <div className="pb-3">
-        <h2 className="flex items-center gap-2">
+        <h2 className="flex items-center gap-2 text-xl font-bold text-primary">
           <FaGamepad className="size-5" />
           Currently Playing
         </h2>
