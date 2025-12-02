@@ -36,7 +36,7 @@ export function ResumeItem({ logoUrl, altText, company, title, start, end, descr
                   <h3 className="text-xs leading-none font-semibold sm:text-sm">{company}</h3>
                   <FaChevronRight
                     className={cn(
-                      'pointer-events-none size-3 shrink-0 transition-all duration-200',
+                      'pointer-events-none size-2.5 shrink-0 transition-all duration-200',
                       'text-black dark:text-white',
                       'opacity-0 group-hover:opacity-100'
                     )}
