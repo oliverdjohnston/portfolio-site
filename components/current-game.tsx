@@ -53,16 +53,16 @@ export async function CurrentGame() {
   return (
     <section id="current-game">
       <div className="pb-3">
-        <h2 className="flex items-center gap-2 text-xl font-bold text-primary">
+        <h3 className="text-primary flex items-center gap-2 text-lg font-bold">
           <FaGamepad className="size-5" />
           Currently Playing
-        </h2>
+        </h3>
       </div>
       <div className="pt-0">
         {game ? (
           <div className="flex items-center gap-3">
-            <div className="relative size-8 shrink-0 overflow-hidden rounded">
-              <Image src={imageUrl!} alt={game.name} width={32} height={32} className="object-cover" />
+            <div className="relative size-12 shrink-0 overflow-hidden rounded">
+              <Image src={imageUrl!} alt={game.name} width={48} height={48} className="object-cover" />
             </div>
             <div className="min-w-0 flex-1">
               <h3 className="truncate font-semibold">{game.name}</h3>

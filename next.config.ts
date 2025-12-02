@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'media.steampowered.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'i.scdn.co',
+      },
     ],
   },
 };
