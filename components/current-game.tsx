@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { FaGamepad } from 'react-icons/fa';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface Game {
   appid: number;
@@ -18,7 +17,7 @@ interface SteamResponse {
 
 async function getCurrentGame(): Promise<Game | null> {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL as string;
 
     const response = await fetch(`${baseUrl}/api/steam`, {
       cache: 'no-store',
@@ -52,14 +51,14 @@ export async function CurrentGame() {
     : null;
 
   return (
-    <Card className="gap-0">
-      <CardHeader className="pb-3">
-        <CardTitle className="flex items-center gap-2">
+    <section id="current-game">
+      <div className="pb-3">
+        <h2 className="flex items-center gap-2">
           <FaGamepad className="size-5" />
           Currently Playing
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="pt-0">
+        </h2>
+      </div>
+      <div className="pt-0">
         {game ? (
           <div className="flex items-center gap-3">
             <div className="relative size-8 shrink-0 overflow-hidden rounded">
@@ -72,7 +71,7 @@ export async function CurrentGame() {
         ) : (
           <p className="text-muted-foreground text-sm">Unable to load game data</p>
         )}
-      </CardContent>
-    </Card>
+      </div>
+    </section>
   );
 }
