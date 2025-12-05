@@ -67,8 +67,8 @@ export async function CurrentlyListening() {
               </div>
             )}
             <div className="min-w-0 flex-1">
-              <h3 className="truncate font-semibold">{track.name}</h3>
-              <p className="text-muted-foreground truncate text-sm">{track.artist}</p>
+              <h3 className="wrap-break-words font-semibold md:truncate">{track.name}</h3>
+              <p className="text-muted-foreground wrap-break-words text-sm md:truncate">{track.artist}</p>
             </div>
           </a>
         ) : (

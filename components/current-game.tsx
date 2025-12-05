@@ -65,7 +65,7 @@ export async function CurrentGame() {
               <Image src={imageUrl!} alt={game.name} width={48} height={48} className="object-cover" />
             </div>
             <div className="min-w-0 flex-1">
-              <h3 className="truncate font-semibold">{game.name}</h3>
+              <h3 className="wrap-break-words font-semibold md:truncate">{game.name}</h3>
             </div>
           </div>
         ) : (
