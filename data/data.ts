@@ -91,7 +91,7 @@ export const projectsData = [
     active: true,
     description: 'Placeholder description',
     detailedDescription: `Placeholder detailed description`,
-    keyFeatures: ['Placeholder key features'],
+    keyFeatures: ['Placeholder key feature 1', 'Placeholder key feature 2'],
     technologies: ['php', 'laravel', 'javascript', 'tailwind', 'mysql', 'react', 'inertia'],
     links: [
       {

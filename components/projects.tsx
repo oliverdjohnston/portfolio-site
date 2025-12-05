@@ -62,7 +62,7 @@ export function Projects() {
               </Card>
             </DialogTrigger>
 
-            <DialogContent className="max-h-[90vh] max-w-3xl overflow-y-auto">
+            <DialogContent className="scrollbar-stable max-h-[90vh] max-w-3xl overflow-y-auto">
               <DialogHeader>
                 <DialogTitle>{project.title}</DialogTitle>
                 <DialogDescription>{project.dates}</DialogDescription>
