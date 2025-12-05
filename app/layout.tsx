@@ -47,14 +47,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-GB" suppressHydrationWarning>
-      <body
-        className={`${supreme.variable} bg-background mx-auto min-h-screen max-w-2xl px-6 py-12 font-sans antialiased sm:py-24`}
-      >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
-          <Navbar />
-          <Analytics />
-        </ThemeProvider>
+      <body className={`${supreme.variable}`}>
+        <div className="mx-auto min-h-screen max-w-2xl px-6 py-12 font-sans antialiased sm:py-24">
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+            {children}
+            <Navbar />
+            <Analytics />
+          </ThemeProvider>
+        </div>
       </body>
     </html>
   );

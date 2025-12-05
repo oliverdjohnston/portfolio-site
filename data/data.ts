@@ -48,3 +48,57 @@ export const experiencesData = [
     description: ['placeholder description'],
   },
 ] as const;
+
+export const badgeConfig = {
+  github: {
+    name: 'GitHub',
+    icon: Icons.github,
+  },
+  php: {
+    name: 'PHP',
+    icon: Icons.php,
+  },
+  laravel: {
+    name: 'Laravel',
+    icon: Icons.laravel,
+  },
+  javascript: {
+    name: 'JavaScript',
+    icon: Icons.javascript,
+  },
+  tailwind: {
+    name: 'Tailwind',
+    icon: Icons.tailwind,
+  },
+  mysql: {
+    name: 'MySQL',
+    icon: Icons.mysql,
+  },
+  react: {
+    name: 'React',
+    icon: Icons.react,
+  },
+  inertia: {
+    name: 'Inertia',
+    icon: Icons.inertia,
+  },
+} as const;
+
+export const projectsData = [
+  {
+    title: 'Family Share Dashboard',
+    dates: '2025',
+    active: true,
+    description: 'Placeholder description',
+    detailedDescription: `Placeholder detailed description`,
+    keyFeatures: ['Placeholder key features'],
+    technologies: ['php', 'laravel', 'javascript', 'tailwind', 'mysql', 'react', 'inertia'],
+    links: [
+      {
+        type: 'github',
+        href: 'https://github.com/oliverdjohnston/family-share-laravel',
+      },
+    ],
+    image: '/images/projects/family-share.png',
+  },
+] as const;

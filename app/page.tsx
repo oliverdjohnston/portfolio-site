@@ -3,6 +3,7 @@ import { CurrentGame } from '@/components/current-game';
 import { CurrentlyListening } from '@/components/currently-listening';
 import { Experience } from '@/components/experience';
 import { Hero } from '@/components/hero';
+import { Projects } from '@/components/projects';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <CurrentlyListening />
       </div>
       <Experience />
+      <Projects />
     </main>
   );
 }
