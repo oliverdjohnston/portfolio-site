@@ -106,3 +106,61 @@ export const projectsData = [
     image: '/images/projects/family-share.png',
   },
 ] as const;
+
+export const skillsData = [
+  {
+    category: 'Backend',
+    skills: [
+      { name: 'Node.js', icon: 'nodejs' },
+      { name: 'TypeScript', icon: 'typescript' },
+      { name: 'Laravel', icon: 'laravel' },
+      { name: 'PHP', icon: 'php' },
+      { name: 'Python', icon: 'python' },
+      { name: 'SQL', icon: 'sql' },
+      { name: 'MySQL', icon: 'mysql' },
+      { name: 'REST APIs', icon: 'restapis' },
+      { name: 'GraphQL', icon: 'graphql' },
+    ],
+  },
+  {
+    category: 'Frontend',
+    skills: [
+      { name: 'React.js', icon: 'react' },
+      { name: 'Next.js', icon: 'nextjs' },
+      { name: 'Inertia.js', icon: 'inertia' },
+      { name: 'Gatsby.js', icon: 'gatsby' },
+      { name: 'HTML5', icon: 'html5' },
+      { name: 'CSS3', icon: 'css3' },
+      { name: 'Tailwind CSS', icon: 'tailwind' },
+    ],
+  },
+  {
+    category: 'DevOps',
+    skills: [
+      { name: 'AWS', icon: 'aws' },
+      { name: 'Docker', icon: 'docker' },
+      { name: 'GitHub Actions', icon: 'githubactions' },
+      { name: 'CI/CD', icon: 'cicd' },
+      { name: 'BitBucket Pipelines', icon: 'bitbucketpipelines' },
+    ],
+  },
+  {
+    category: 'Practices',
+    skills: [
+      { name: 'Agile', icon: 'agile' },
+      { name: 'Waterfall', icon: 'waterfall' },
+      { name: 'OOP', icon: 'oop' },
+      { name: 'TDD', icon: 'tdd' },
+    ],
+  },
+  {
+    category: 'Tools',
+    skills: [
+      { name: 'Linux', icon: 'linux' },
+      { name: 'Sentry', icon: 'sentry' },
+      { name: 'BitBucket', icon: 'bitbucket' },
+      { name: 'Laravel Forge', icon: 'laravelforge' },
+      { name: 'Laravel Valet', icon: 'laravelvalet' },
+    ],
+  },
+] as const;
