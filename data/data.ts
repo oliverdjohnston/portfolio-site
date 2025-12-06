@@ -82,6 +82,10 @@ export const badgeConfig = {
     name: 'Inertia',
     icon: Icons.inertia,
   },
+  typescript: {
+    name: 'TypeScript',
+    icon: Icons.typescript,
+  },
 } as const;
 
 export const projectsData = [
@@ -92,7 +96,7 @@ export const projectsData = [
     description: 'Placeholder description',
     detailedDescription: `Placeholder detailed description`,
     keyFeatures: ['Placeholder key feature 1', 'Placeholder key feature 2'],
-    technologies: ['php', 'laravel', 'javascript', 'tailwind', 'mysql', 'react', 'inertia'],
+    technologies: ['php', 'laravel', 'react', 'inertia', 'typescript', 'tailwind', 'mysql', 'javascript'],
     links: [
       {
         type: 'github',

@@ -1,6 +1,15 @@
 import { FaEnvelope, FaGithub, FaLinkedin, FaMoon, FaSun } from 'react-icons/fa';
 import { FaHouse } from 'react-icons/fa6';
-import { SiInertia, SiJavascript, SiLaravel, SiMysql, SiPhp, SiReact, SiTailwindcss } from 'react-icons/si';
+import {
+  SiInertia,
+  SiJavascript,
+  SiLaravel,
+  SiMysql,
+  SiPhp,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+} from 'react-icons/si';
 
 export const Icons = {
   github: FaGithub,
@@ -16,4 +25,5 @@ export const Icons = {
   mysql: SiMysql,
   react: SiReact,
   inertia: SiInertia,
+  typescript: SiTypescript,
 } as const;
