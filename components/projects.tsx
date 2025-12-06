@@ -32,22 +32,30 @@ export function Projects() {
                         <p className="text-muted-foreground mb-3 text-sm">{project.dates}</p>
                         <p className="mb-4 text-sm">{project.description}</p>
                       </div>
-                      <div className="flex flex-wrap gap-2">
-                        {project.technologies.map((techKey, techIndex) => {
-                          const techInfo = badgeConfig[techKey as keyof typeof badgeConfig];
-                          const TechIcon = techInfo?.icon;
-                          return (
-                            <Badge
-                              key={techIndex}
-                              variant="secondary"
-                              className="inline-flex items-center gap-1 text-xs"
-                            >
-                              {TechIcon && <TechIcon className="h-3 w-3" />}
-                              {techInfo?.name || techKey}
-                            </Badge>
-                          );
-                        })}
-                      </div>
+                      {project.links && project.links.length > 0 && (
+                        <div className="flex flex-wrap gap-3">
+                          {project.links.map((link, linkIndex) => {
+                            const badgeInfo = badgeConfig[link.type as keyof typeof badgeConfig];
+                            const Icon = badgeInfo?.icon;
+                            return (
+                              <Link
+                                key={linkIndex}
+                                href={link.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className={cn(
+                                  'bg-background inline-flex items-center gap-2 rounded-md border px-3 py-2 text-sm transition-colors',
+                                  'hover:bg-accent hover:text-accent-foreground'
+                                )}
+                              >
+                                {Icon && <Icon className="h-4 w-4" />}
+                                <span>{badgeInfo?.name || link.type}</span>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      )}
                     </div>
                     <div className="relative hidden aspect-square w-full md:block md:w-1/2">
                       <Image
