@@ -23,7 +23,7 @@ export function Projects() {
         {projectsData.map((project, index) => (
           <Dialog key={index}>
             <DialogTrigger asChild>
-              <Card className="hover:border-primary/50 hover:bg-accent/50 cursor-pointer transition-all">
+              <Card role="button" className="hover:border-primary/50 hover:bg-accent/50 cursor-pointer transition-all">
                 <CardContent className="p-0">
                   <div className="flex flex-col md:flex-row">
                     <div className="flex flex-col justify-between p-6 md:w-1/2">
