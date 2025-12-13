@@ -37,9 +37,12 @@ export const experiencesData = [
     logoUrl: '/images/flaunt-digital.jpg',
     start: 'Oct 2023',
     end: 'Oct 2024',
-    description: ['placeholder description 1', 'placeholder description 2', 'placeholder description 3'],
+    description: [
+      'Worked on internal and client projects using HTML, CSS/SCSS, JavaScript, React, Gatsby, Laravel, Inertia, Tailwind CSS and MySQL.',
+      'Built and maintained internal tools with Laravel, Blade and Tailwind CSS.',
+      'Collaborated within an Agile team using Git, pull requests, ActiveCollab tasks and daily stand-ups.',
+    ],
   },
-
   {
     company: 'Flaunt Digital',
     location: 'Leeds',
@@ -47,7 +50,14 @@ export const experiencesData = [
     logoUrl: '/images/flaunt-digital.jpg',
     start: 'Oct 2024',
     end: 'Present',
-    description: ['placeholder description 1', 'placeholder description 2', 'placeholder description 3'],
+    description: [
+      'Redesigned internal tools using Laravel, Blade and Tailwind CSS, improving responsiveness and user experience.',
+      'Developed Google Apps Script automations integrating with services such as ActiveCollab and the Google Ads API to improve internal efficiency.',
+      'Delivered CMS driven frontend projects using Gatsby, Contentful and GraphQL.',
+      'Managed deployments and local development environments using Laravel Forge and Laravel Valet, with Netlify and Vercel for client projects.',
+      'Migrated internal tools from AWS to Laravel Forge.',
+      'Worked with a variety of members within the company such as designers, senior developers, project managers and members of the SEO team.',
+    ],
   },
 ] as const;
 
