@@ -3,6 +3,7 @@ import localFont from 'next/font/local';
 import './globals.css';
 import { personalData } from '@/data/data';
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Navbar } from '@/components/navbar';
 import { ThemeProvider } from '@/components/theme-provider';
 
@@ -53,6 +54,7 @@ export default function RootLayout({
             {children}
             <Navbar />
             <Analytics />
+            <SpeedInsights />
           </ThemeProvider>
         </div>
       </body>
