@@ -10,8 +10,10 @@ export const personalData = {
     const currentYear = new Date().getFullYear();
     const startYear = 2023;
     const yearsOfExperience = currentYear - startYear;
+    const birthYear = 2004;
+    const age = currentYear - birthYear;
 
-    return `I'm a **full stack developer** at Flaunt Digital, focused on building performant, accessible web applications. I have **${yearsOfExperience} years** of experience. Outside work, I enjoy tech and gaming.`;
+    return `I'm a ${age} year old **full stack developer** at Flaunt Digital, focused on building performant, accessible web applications. I have **${yearsOfExperience} years** of experience. Outside work, I enjoy tech and gaming.`;
   },
 } as const;
 
@@ -93,9 +95,19 @@ export const projectsData = [
     title: 'Family Share Dashboard',
     dates: '2025',
     active: true,
-    description: 'Placeholder description',
-    detailedDescription: `Placeholder detailed description`,
-    keyFeatures: ['Placeholder key feature 1', 'Placeholder key feature 2'],
+    description:
+      'A dashboard I built for my group of friends to track our Steam Family Sharing libraries and figure out who should buy the next game.',
+    detailedDescription: `I built this for my friends as we share games through Steam Family Sharing. We kept having the same argument about whose turn it was to buy the next game, so I made a dashboard that syncs with Steam's API to pull everyone's libraries and tracks what we've spent.
+    It compares game prices from both Steam and CDKeys, and there's a "next buyer" algorithm that looks at recent spending (70%) and how long it's been since someone last bought something (30%). You upload your Steam licenses HTML file to get the initial purchase dates, then a cron job runs daily to track new games going forward.
+    The annoying bits were Steam's API rate limits, had to add sleep delays everywhere, and matching game names between Steam and CDKeys was a pain. Ended up building a similarity matching thing to handle all the weird naming differences.`,
+    keyFeatures: [
+      'Steam library sync via Steam API',
+      'Next buyer algorithm based on spending and purchase history',
+      'Compare prices from Steam and CDKeys',
+      'Monthly spending trends',
+      'Library editor to manually adjust game data',
+      'Family sharing support detection',
+    ],
     technologies: ['php', 'laravel', 'react', 'inertia', 'typescript', 'tailwind', 'mysql', 'javascript'],
     links: [
       {
