@@ -10,7 +10,7 @@ export function Skills() {
     <section id="skills">
       <h2 className="text-primary mb-4 text-xl font-bold">Skills</h2>
       <Tabs defaultValue={skillsData[0].category} className="w-full">
-        <TabsList className="mb-6 grid w-full grid-cols-2 items-stretch gap-[3px] sm:grid-cols-3 lg:grid-cols-5">
+        <TabsList className="mb-6 grid w-full grid-cols-2 items-stretch gap-[3px] sm:grid-cols-4">
           {skillsData.map((category) => (
             <TabsTrigger key={category.category} value={category.category}>
               {category.category}
@@ -19,7 +19,7 @@ export function Skills() {
         </TabsList>
         {skillsData.map((category) => (
           <TabsContent key={category.category} value={category.category}>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
               {category.skills.map((skill) => {
                 const Icon = Icons[skill.icon as keyof typeof Icons];
                 return (

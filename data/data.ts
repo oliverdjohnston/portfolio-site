@@ -35,7 +35,7 @@ export const experiencesData = [
     logoUrl: '/images/flaunt-digital.jpg',
     start: 'Oct 2023',
     end: 'Oct 2024',
-    description: ['placeholder description'],
+    description: ['placeholder description 1', 'placeholder description 2', 'placeholder description 3'],
   },
 
   {
@@ -45,7 +45,7 @@ export const experiencesData = [
     logoUrl: '/images/flaunt-digital.jpg',
     start: 'Oct 2024',
     end: 'Present',
-    description: ['placeholder description'],
+    description: ['placeholder description 1', 'placeholder description 2', 'placeholder description 3'],
   },
 ] as const;
 
@@ -142,15 +142,6 @@ export const skillsData = [
       { name: 'GitHub Actions', icon: 'githubactions' },
       { name: 'CI/CD', icon: 'cicd' },
       { name: 'BitBucket Pipelines', icon: 'bitbucketpipelines' },
-    ],
-  },
-  {
-    category: 'Practices',
-    skills: [
-      { name: 'Agile', icon: 'agile' },
-      { name: 'Waterfall', icon: 'waterfall' },
-      { name: 'OOP', icon: 'oop' },
-      { name: 'TDD', icon: 'tdd' },
     ],
   },
   {
