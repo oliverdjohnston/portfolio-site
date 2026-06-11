@@ -201,7 +201,7 @@ body[data-scroll-locked] {
 }
 
 .animate-reveal {
-  animation: reveal-up 500ms cubic-bezier(0.23, 1, 0.32, 1) both;
+  animation: reveal-up 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 /* Now-playing equalizer bars */

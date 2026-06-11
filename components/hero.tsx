@@ -12,10 +12,10 @@ export function Hero() {
           >
             Hi, I&apos;m <span className="text-primary font-bold">{personalData.name.split(' ')[0]}</span>
           </h1>
-          <p className="animate-reveal text-pretty md:text-xl" style={{ animationDelay: '70ms' }}>
+          <p className="animate-reveal text-pretty md:text-xl" style={{ animationDelay: '80ms' }}>
             {personalData.description}
           </p>
-          <p className="text-muted-foreground animate-reveal text-sm" style={{ animationDelay: '140ms' }}>
+          <p className="text-muted-foreground animate-reveal text-sm" style={{ animationDelay: '160ms' }}>
             {personalData.location}
           </p>
         </div>
@@ -24,7 +24,7 @@ export function Hero() {
           initials={personalData.initials}
           alt={personalData.name}
           className="border-secondary animate-reveal size-24 shrink-0 border-2 sm:size-28"
-          style={{ animationDelay: '70ms' }}
+          style={{ animationDelay: '80ms' }}
         />
       </div>
     </section>
