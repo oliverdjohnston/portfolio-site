@@ -1,11 +1,13 @@
-export function MediaCardSkeleton({ label }: { label: string }) {
+import type { IconType } from 'react-icons';
+
+export function MediaCardSkeleton({ icon: Icon, label }: { icon: IconType; label?: string }) {
   return (
-    <section aria-busy="true" aria-label={`${label} loading`}>
+    <section aria-busy="true" aria-label={label ? `${label} loading` : 'Loading'}>
       <div className="pb-3">
-        <h3 className="text-primary flex items-center gap-2 text-lg font-bold">
-          <span className="bg-primary/30 size-5 shrink-0 animate-pulse rounded" />
-          {label}
-        </h3>
+        <h2 className="text-primary flex items-center gap-2 text-lg font-bold">
+          <Icon className="size-5" />
+          {label ?? <span className="bg-muted h-5 w-36 animate-pulse rounded" />}
+        </h2>
       </div>
       <div className="flex items-center gap-3 pt-0">
         <div className="bg-muted size-12 shrink-0 animate-pulse rounded" />
