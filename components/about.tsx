@@ -1,10 +1,10 @@
 import { cacheLife } from 'next/cache';
+
 import { personalData } from '@/data/data';
 import ReactMarkdown from 'react-markdown';
 
 export async function About() {
   'use cache';
-  // cached daily so summary()'s new Date() runs at cache time, not on render
   cacheLife('days');
 
   return (

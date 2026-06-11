@@ -1,4 +1,5 @@
 import { personalData } from '@/data/data';
+
 import { Avatar } from '@/components/ui/avatar';
 
 export function Hero() {

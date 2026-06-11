@@ -1,5 +1,7 @@
 import { Suspense } from 'react';
+
 import { FaGamepad, FaHeadphones } from 'react-icons/fa';
+
 import { About } from '@/components/about';
 import { CurrentGame } from '@/components/current-game';
 import { CurrentlyListening } from '@/components/currently-listening';

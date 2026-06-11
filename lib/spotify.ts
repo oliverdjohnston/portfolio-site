@@ -92,7 +92,6 @@ export async function getCurrentlyPlaying(): Promise<Track | null> {
   }
 
   try {
-    // currently playing takes priority
     const currentlyPlaying = await fetch('https://api.spotify.com/v1/me/player/currently-playing', {
       headers: { Authorization: `Bearer ${accessToken}` },
     });
@@ -104,7 +103,6 @@ export async function getCurrentlyPlaying(): Promise<Track | null> {
       }
     }
 
-    // fall back to most recently played
     const recentlyPlayed = await fetch('https://api.spotify.com/v1/me/player/recently-played?limit=1', {
       headers: { Authorization: `Bearer ${accessToken}` },
     });

@@ -1,6 +1,7 @@
 'use client';
 
 import { experiencesData } from '@/data/data';
+
 import { ResumeItem } from '@/components/resume-item';
 import { Accordion } from '@/components/ui/accordion';
 

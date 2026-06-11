@@ -46,7 +46,6 @@ import {
 } from 'react-icons/si';
 
 export const Icons = {
-  // Navbar & theme
   github: FaGithub,
   linkedin: FaLinkedin,
   email: FaEnvelope,

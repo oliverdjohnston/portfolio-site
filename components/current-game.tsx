@@ -1,4 +1,5 @@
 import Image from 'next/image';
+
 import { getRecentGame } from '@/lib/steam';
 import { FaGamepad } from 'react-icons/fa';
 

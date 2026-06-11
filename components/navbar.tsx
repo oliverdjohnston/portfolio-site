@@ -1,10 +1,13 @@
 'use client';
 
 import { useState, type MouseEvent, type ReactNode } from 'react';
+
 import Link from 'next/link';
+
 import { navbarData } from '@/data/data';
 import { cn } from '@/lib/utils';
 import { motion, useReducedMotion } from 'motion/react';
+
 import { ThemeToggle } from '@/components/theme-toggle';
 import { buttonVariants } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
