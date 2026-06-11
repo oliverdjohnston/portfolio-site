@@ -4,8 +4,7 @@ import ReactMarkdown from 'react-markdown';
 
 export async function About() {
   'use cache';
-  // summary() reads the current date to derive age / years of experience;
-  // caching for a day lets it run at cache time and stay current enough.
+  // cached daily so summary()'s new Date() runs at cache time, not on render
   cacheLife('days');
 
   return (

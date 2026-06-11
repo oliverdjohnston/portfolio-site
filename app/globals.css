@@ -188,8 +188,7 @@ body[data-scroll-locked] {
   }
 }
 
-/* Page-load reveal: subtle fade + lift, strong ease-out curve.
-   `both` fill keeps the from-state during the staggered delay. */
+/* Staggered page-load reveal (`both` keeps the from-state during the delay) */
 @keyframes reveal-up {
   from {
     opacity: 0;
