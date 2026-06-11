@@ -188,11 +188,11 @@ body[data-scroll-locked] {
   }
 }
 
-/* Staggered page-load reveal (`both` keeps the from-state during the delay) */
+/* Hero load reveal — same curve/duration/distance as the <RevealItem> cascade */
 @keyframes reveal-up {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
