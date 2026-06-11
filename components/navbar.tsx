@@ -10,7 +10,7 @@ import { buttonVariants } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 
-const SPRING = { mass: 0.1, stiffness: 160, damping: 14 } as const;
+const SPRING = { mass: 0.1, stiffness: 170, damping: 17 } as const;
 
 // Widens each item as the cursor nears it (the dock fluidly expands and the
 // container grows with it). Children must fill the item with `size-full`.
@@ -30,7 +30,7 @@ function DockItem({
     if (!bounds) return Infinity;
     return val - bounds.x - bounds.width / 2;
   });
-  const width = useSpring(useTransform(distance, [-140, 0, 140], [40, 64, 40]), SPRING);
+  const width = useSpring(useTransform(distance, [-120, 0, 120], [40, 52, 40]), SPRING);
 
   if (reduce) {
     return (
