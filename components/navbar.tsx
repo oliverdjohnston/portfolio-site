@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useState, type MouseEvent } from 'react';
 import Link from 'next/link';
 import { navbarData } from '@/data/data';
 import { cn } from '@/lib/utils';
@@ -12,7 +12,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip
 
 const itemClass = cn(
   buttonVariants({ variant: 'ghost', size: 'icon-lg' }),
-  'text-primary hover:text-secondary relative cursor-pointer rounded-full transition-[transform,color] duration-200 ease-out hover:-translate-y-0.5 hover:bg-transparent active:scale-95'
+  'text-primary hover:text-secondary relative cursor-pointer rounded-full transition-colors duration-200 ease-out hover:bg-transparent active:scale-95'
 );
 
 function NavItem({ item }: { item: (typeof navbarData)[number] }) {
@@ -44,16 +44,13 @@ export function Navbar() {
   const contactItems = navbarData.filter((item) => item.type === 'contact');
 
   const reduce = useReducedMotion();
-  const containerRef = useRef<HTMLDivElement>(null);
   const [highlightX, setHighlightX] = useState(0);
   const [hovering, setHovering] = useState(false);
 
-  // Slide a single highlight pill behind whichever item the cursor is over.
-  const moveHighlight = (e: React.MouseEvent) => {
-    const container = containerRef.current;
+  const moveHighlight = (e: MouseEvent) => {
     const target = (e.target as HTMLElement).closest<HTMLElement>('[data-dock-item]');
-    if (!container || !target) return;
-    setHighlightX(target.getBoundingClientRect().left - container.getBoundingClientRect().left);
+    if (!target) return;
+    setHighlightX(target.offsetLeft);
     setHovering(true);
   };
 
@@ -62,14 +59,13 @@ export function Navbar() {
       <div className="bg-background/60 dark:bg-background/80 pointer-events-none fixed inset-x-0 bottom-0 h-16 to-transparent backdrop-blur-2xl [-webkit-mask-image:linear-gradient(to_top,black,transparent)]" />
 
       <motion.div
-        ref={containerRef}
         onMouseMove={moveHighlight}
         onMouseLeave={() => setHovering(false)}
         initial={reduce ? { opacity: 0 } : { opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
         className={cn(
-          'border-border/40 bg-card/80 pointer-events-auto relative flex w-auto max-w-2xl items-center gap-1 rounded-full border px-3 py-1.5 backdrop-blur-2xl',
+          'border-border/40 bg-card/80 pointer-events-auto relative flex w-auto max-w-2xl items-center gap-1 rounded-full border px-3 py-1.5 backdrop-blur-2xl transition-[padding] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:px-6',
           'dark:border-border/60 dark:bg-card/70 dark:shadow-md'
         )}
       >
