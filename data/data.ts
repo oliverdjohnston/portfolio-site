@@ -98,6 +98,62 @@ export const badgeConfig = {
     name: 'TypeScript',
     icon: Icons.typescript,
   },
+  external: {
+    name: 'Website',
+    icon: Icons.external,
+  },
+  nextjs: {
+    name: 'Next.js',
+    icon: Icons.nextjs,
+  },
+  python: {
+    name: 'Python',
+    icon: Icons.python,
+  },
+  docker: {
+    name: 'Docker',
+    icon: Icons.docker,
+  },
+  fastapi: {
+    name: 'FastAPI',
+    icon: Icons.fastapi,
+  },
+  postgresql: {
+    name: 'PostgreSQL',
+    icon: Icons.postgresql,
+  },
+  redis: {
+    name: 'Redis',
+    icon: Icons.redis,
+  },
+  shadcn: {
+    name: 'shadcn',
+    icon: Icons.shadcn,
+  },
+  openai: {
+    name: 'OpenAI',
+    icon: Icons.openai,
+  },
+  rq: {
+    name: 'RQ',
+    icon: Icons.rq,
+  },
+  claude: {
+    name: 'Claude',
+    icon: Icons.claude,
+  },
+  copilot: {
+    name: 'Copilot',
+    icon: Icons.copilot,
+  },
+  supabase: {
+    name: 'Supabase',
+    icon: Icons.supabase,
+  },
+  opencode: {
+    name: 'OpenCode',
+    icon: Icons.opencode,
+  },
 } as const;
 
 export const projectsData = [
@@ -127,6 +183,48 @@ export const projectsData = [
     ],
     image: '/images/projects/family-share.png',
   },
+
+  {
+    title: 'Trump Tracker',
+    dates: '2026',
+    active: true,
+    description:
+      "Trump Tracker ingests Donald Trump's public comments from YouTube captions, Factba.se transcripts and Truth Social. It uses an LLM to detect company mentions and confirm he was the speaker, then captures Polygon.io stock prices at fixed intervals afterward to measure whether his remarks move the market.",
+    detailedDescription:
+      "I built Trump Tracker to test whether Donald Trump's public comments have any measurable relationship with stock price movement. The system ingests his remarks from three sources: YouTube live captions, Factba.se transcripts and Truth Social, then uses OpenAI's GPT-5 Nano to detect company mentions and decide whether Trump actually said the relevant line or whether it came from someone else in the transcript. Each mention is scored for confidence and promotion intensity before being resolved to a US stock ticker. This turned out to be more complex than simple name matching because casual brand names are often ambiguous. To handle that, I built a multi stage resolution pipeline combining override rules, brand disambiguation and LLM fallbacks, with Polygon.io used to map a resolved name to a concrete ticker. Once a mention passes the confidence checks, the backend captures Polygon.io price snapshots at fixed event relative intervals after the comment which are: +15 minutes, +30 minutes, +1 hour, +4 hours and +1 day. Each user or admin can configure their own Discord webhook and email alerts. The platform also includes a live Next.js dashboard built with Tailwind, a human review queue for borderline matches the system isn't fully confident in and a separate pipeline that tracks the stock portfolios of Trump and his cabinet officials using public OGE financial disclosures. The most challenging part was making mention detection reliable, especially with messy YouTube captions and cases where transcript text had to be attributed to the correct speaker. I also had to handle market hours, weekends and Polygon.io boundaries so that price snapshots aligned to when the comment was actually made rather than when the system happened to process it. This project made me much more comfortable with FastAPI, Redis/RQ queues, Supabase/PostgreSQL, Next.js, TypeScript, Docker and using LLMs as one stage of a larger data pipeline rather than just as a chatbot.",
+    keyFeatures: [
+      'LLM powered company mention detection from YouTube captions, Factba.se transcripts and Truth Social',
+      'Speaker attribution to reduce false positives from messy transcript data',
+      'Confidence and promotion-intensity scoring for each detected mention',
+      'Multi stage name to ticker resolution with override rules and brand disambiguation',
+      'Event-relative stock price tracking at +15m, +30m, +1h, +4h, and +1d intervals',
+      'Per user Discord webhook and email alerting with deduplication',
+      'Live SSE dashboard streaming mentions, prices, and queue status',
+      'Human review queue for borderline confidence mentions',
+      'Cabinet portfolio tracking from public OGE financial disclosures',
+    ],
+    technologies: [
+      'nextjs',
+      'react',
+      'typescript',
+      'fastapi',
+      'python',
+      'postgresql',
+      'redis',
+      'tailwind',
+      'shadcn',
+      'docker',
+      'openai',
+      'rq',
+    ],
+    links: [
+      {
+        type: 'external',
+        href: 'https://trumptracker.cc/',
+      },
+    ],
+    image: '/images/projects/trump-tracker.png',
+  },
 ] as const;
 
 export const skillsData = [
@@ -142,6 +240,10 @@ export const skillsData = [
       { name: 'MySQL', icon: 'mysql' },
       { name: 'REST APIs', icon: 'restapis' },
       { name: 'GraphQL', icon: 'graphql' },
+      { name: 'FastAPI', icon: 'fastapi' },
+      { name: 'PostgreSQL', icon: 'postgresql' },
+      { name: 'Redis', icon: 'redis' },
+      { name: 'Supabase', icon: 'supabase' },
     ],
   },
   {
@@ -154,6 +256,7 @@ export const skillsData = [
       { name: 'HTML5', icon: 'html5' },
       { name: 'CSS3', icon: 'css3' },
       { name: 'Tailwind CSS', icon: 'tailwind' },
+      { name: 'shadcn/ui', icon: 'shadcn' },
     ],
   },
   {
@@ -174,6 +277,10 @@ export const skillsData = [
       { name: 'BitBucket', icon: 'bitbucket' },
       { name: 'Laravel Forge', icon: 'laravelforge' },
       { name: 'Laravel Valet', icon: 'laravelvalet' },
+      { name: 'OpenAI', icon: 'openai' },
+      { name: 'Claude', icon: 'claude' },
+      { name: 'Copilot', icon: 'copilot' },
+      { name: 'OpenCode', icon: 'opencode' },
     ],
   },
 ] as const;
