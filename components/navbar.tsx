@@ -16,7 +16,7 @@ const WIDTH_SPRING = { type: 'spring', stiffness: 400, damping: 30 } as const;
 
 const itemClass = cn(
   buttonVariants({ variant: 'ghost', size: 'icon-lg' }),
-  'text-primary hover:text-secondary relative size-full cursor-pointer rounded-full transition-colors duration-200 ease-out hover:bg-transparent active:scale-95'
+  'text-primary hover:text-secondary relative size-full cursor-pointer rounded-full transition-colors duration-200 ease-out hover:bg-transparent active:scale-95 dark:hover:bg-transparent'
 );
 
 function DockItem({ hovering, reduce, children }: { hovering: boolean; reduce: boolean | null; children: ReactNode }) {
