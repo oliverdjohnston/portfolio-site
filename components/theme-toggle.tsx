@@ -26,7 +26,7 @@ export function ThemeToggle() {
           onClick={handleToggle}
           className={cn(
             buttonVariants({ variant: 'ghost', size: 'icon-lg' }),
-            'text-primary hover:text-secondary relative size-full cursor-pointer rounded-full transition-colors duration-200 ease-out hover:bg-transparent active:scale-95'
+            'text-primary hover:text-secondary relative size-full cursor-pointer rounded-full transition-colors duration-200 ease-out hover:bg-transparent active:scale-95 dark:hover:bg-transparent'
           )}
         >
           <SunIcon className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-transform duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] dark:scale-0 dark:-rotate-90" />
