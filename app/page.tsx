@@ -7,35 +7,35 @@ import { Experience } from '@/components/experience';
 import { Hero } from '@/components/hero';
 import { MediaCardSkeleton } from '@/components/media-card-skeleton';
 import { Projects } from '@/components/projects';
+import { RevealItem, Stagger } from '@/components/reveal';
 import { Skills } from '@/components/skills';
 
-// One continuous load cascade: each block reveals 80ms after the previous,
-// picking up from the hero lines (0/80/160ms) so the whole page settles in
-// top-to-bottom as a single sequence.
 export default function Home() {
   return (
     <main className="flex min-h-dvh flex-col gap-10">
       <Hero />
-      <div className="animate-reveal" style={{ animationDelay: '240ms' }}>
-        <About />
-      </div>
-      <div className="animate-reveal grid gap-10 md:grid-cols-2" style={{ animationDelay: '320ms' }}>
-        <Suspense fallback={<MediaCardSkeleton icon={FaGamepad} label="Currently Playing" />}>
-          <CurrentGame />
-        </Suspense>
-        <Suspense fallback={<MediaCardSkeleton icon={FaHeadphones} />}>
-          <CurrentlyListening />
-        </Suspense>
-      </div>
-      <div className="animate-reveal" style={{ animationDelay: '400ms' }}>
-        <Experience />
-      </div>
-      <div className="animate-reveal" style={{ animationDelay: '480ms' }}>
-        <Projects />
-      </div>
-      <div className="animate-reveal" style={{ animationDelay: '560ms' }}>
-        <Skills />
-      </div>
+      <Stagger className="flex flex-col gap-10">
+        <RevealItem>
+          <About />
+        </RevealItem>
+        <RevealItem className="grid gap-10 md:grid-cols-2">
+          <Suspense fallback={<MediaCardSkeleton icon={FaGamepad} label="Currently Playing" />}>
+            <CurrentGame />
+          </Suspense>
+          <Suspense fallback={<MediaCardSkeleton icon={FaHeadphones} />}>
+            <CurrentlyListening />
+          </Suspense>
+        </RevealItem>
+        <RevealItem>
+          <Experience />
+        </RevealItem>
+        <RevealItem>
+          <Projects />
+        </RevealItem>
+        <RevealItem>
+          <Skills />
+        </RevealItem>
+      </Stagger>
     </main>
   );
 }
