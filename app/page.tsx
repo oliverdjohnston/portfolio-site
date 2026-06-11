@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import { FaGamepad, FaHeadphones } from 'react-icons/fa';
 import { About } from '@/components/about';
 import { CurrentGame } from '@/components/current-game';
 import { CurrentlyListening } from '@/components/currently-listening';
@@ -13,14 +14,14 @@ export default function Home() {
   return (
     <main className="flex min-h-dvh flex-col gap-10">
       <Hero />
-      <Reveal>
+      <Reveal delay={0.15}>
         <About />
       </Reveal>
-      <Reveal className="grid gap-10 md:grid-cols-2">
-        <Suspense fallback={<MediaCardSkeleton label="Currently Playing" />}>
+      <Reveal delay={0.25} className="grid gap-10 md:grid-cols-2">
+        <Suspense fallback={<MediaCardSkeleton icon={FaGamepad} label="Currently Playing" />}>
           <CurrentGame />
         </Suspense>
-        <Suspense fallback={<MediaCardSkeleton label="Currently Listening To" />}>
+        <Suspense fallback={<MediaCardSkeleton icon={FaHeadphones} />}>
           <CurrentlyListening />
         </Suspense>
       </Reveal>

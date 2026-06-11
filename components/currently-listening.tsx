@@ -22,11 +22,11 @@ export async function CurrentlyListening() {
   return (
     <section id="currently-listening">
       <div className="pb-3">
-        <h3 className="text-primary flex items-center gap-2 text-lg font-bold">
+        <h2 className="text-primary flex items-center gap-2 text-lg font-bold">
           <FaHeadphones className="size-5" />
           {track?.is_playing ? 'Currently Listening To' : 'Recently Played'}
           {track?.is_playing && <Equalizer />}
-        </h3>
+        </h2>
       </div>
       <div className="pt-0">
         {track ? (
@@ -48,7 +48,7 @@ export async function CurrentlyListening() {
               </div>
             )}
             <div className="min-w-0 flex-1">
-              <h3 className="wrap-break-words font-semibold md:truncate">{track.name}</h3>
+              <p className="wrap-break-words font-semibold md:truncate">{track.name}</p>
               <p className="text-muted-foreground wrap-break-words text-sm md:truncate">{track.artist}</p>
             </div>
           </a>

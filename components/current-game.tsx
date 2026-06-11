@@ -11,10 +11,10 @@ export async function CurrentGame() {
   return (
     <section id="current-game">
       <div className="pb-3">
-        <h3 className="text-primary flex items-center gap-2 text-lg font-bold">
+        <h2 className="text-primary flex items-center gap-2 text-lg font-bold">
           <FaGamepad className="size-5" />
           Currently Playing
-        </h3>
+        </h2>
       </div>
       <div className="pt-0">
         {game ? (
@@ -23,7 +23,7 @@ export async function CurrentGame() {
               <Image src={imageUrl!} alt={game.name} width={48} height={48} className="object-cover" />
             </div>
             <div className="min-w-0 flex-1">
-              <h3 className="wrap-break-words font-semibold md:truncate">{game.name}</h3>
+              <p className="wrap-break-words font-semibold md:truncate">{game.name}</p>
             </div>
           </div>
         ) : (
