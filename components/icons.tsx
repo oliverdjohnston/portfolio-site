@@ -1,4 +1,16 @@
-import { FaCloud, FaCode, FaEnvelope, FaFlask, FaGithub, FaGlobe, FaLinkedin, FaMoon, FaRedo, FaSun, FaWater } from 'react-icons/fa';
+import {
+  FaCloud,
+  FaCode,
+  FaEnvelope,
+  FaFlask,
+  FaGithub,
+  FaGlobe,
+  FaLinkedin,
+  FaMoon,
+  FaRedo,
+  FaSun,
+  FaWater,
+} from 'react-icons/fa';
 import { FaHouse } from 'react-icons/fa6';
 import {
   SiAmazon,

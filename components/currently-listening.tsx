@@ -1,51 +1,32 @@
 import Image from 'next/image';
+import { getCurrentlyPlaying } from '@/lib/spotify';
 import { FaHeadphones } from 'react-icons/fa';
 
-interface Track {
-  name: string;
-  artist: string;
-  album: string;
-  image: string | null;
-  url: string;
-  is_playing: boolean;
-}
-
-interface SpotifyResponse {
-  track: Track | null;
-  error?: string;
-}
-
-async function getCurrentlyListening(): Promise<Track | null> {
-  try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL as string;
-
-    const response = await fetch(`${baseUrl}/api/spotify/currently-playing`, {
-      cache: 'no-store',
-    });
-
-    if (!response.ok) {
-      return null;
-    }
-
-    const data: SpotifyResponse = await response.json();
-
-    return data.track || null;
-  } catch (error) {
-    console.error('Error fetching currently listening:', error);
-    return null;
-  }
+function Equalizer() {
+  return (
+    <span aria-hidden className="ml-0.5 flex h-4 items-end gap-[3px]">
+      {[0, 180, 360, 120].map((delay, i) => (
+        <span
+          key={i}
+          className="equalizer-bar bg-primary block h-full w-[3px] rounded-full"
+          style={{ animationDelay: `${delay}ms` }}
+        />
+      ))}
+    </span>
+  );
 }
 
 export async function CurrentlyListening() {
-  const track = await getCurrentlyListening();
+  const track = await getCurrentlyPlaying();
 
   return (
     <section id="currently-listening">
       <div className="pb-3">
-        <h3 className="text-primary flex items-center gap-2 text-lg font-bold">
+        <h2 className="text-primary flex items-center gap-2 text-lg font-bold">
           <FaHeadphones className="size-5" />
           {track?.is_playing ? 'Currently Listening To' : 'Recently Played'}
-        </h3>
+          {track?.is_playing && <Equalizer />}
+        </h2>
       </div>
       <div className="pt-0">
         {track ? (
@@ -67,7 +48,7 @@ export async function CurrentlyListening() {
               </div>
             )}
             <div className="min-w-0 flex-1">
-              <h3 className="wrap-break-words font-semibold md:truncate">{track.name}</h3>
+              <p className="wrap-break-words font-semibold md:truncate">{track.name}</p>
               <p className="text-muted-foreground wrap-break-words text-sm md:truncate">{track.artist}</p>
             </div>
           </a>

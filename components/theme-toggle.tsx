@@ -26,11 +26,11 @@ export function ThemeToggle() {
           onClick={handleToggle}
           className={cn(
             buttonVariants({ variant: 'ghost', size: 'icon-lg' }),
-            'bg-background/40 text-primary hover:bg-secondary/20 hover:text-secondary relative cursor-pointer rounded-full backdrop-blur-xl transition-colors duration-200 ease-out'
+            'text-primary hover:text-secondary relative size-full cursor-pointer rounded-full transition-colors duration-200 ease-out hover:bg-transparent active:scale-95 dark:hover:bg-transparent'
           )}
         >
-          <SunIcon className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
-          <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+          <SunIcon className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-transform duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] dark:scale-0 dark:-rotate-90" />
+          <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-transform duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] dark:scale-100 dark:rotate-0" />
           <span className="sr-only">Toggle theme</span>
         </button>
       </TooltipTrigger>
