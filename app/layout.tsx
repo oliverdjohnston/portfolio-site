@@ -13,8 +13,10 @@ const supreme = localFont({
   display: 'swap',
 });
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000';
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL as string),
+  metadataBase: new URL(baseUrl),
   title: {
     default: `${personalData.name} | Full Stack Web Developer`,
     template: `%s | ${personalData.name}`,
