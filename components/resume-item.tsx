@@ -2,6 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import { FaChevronRight } from 'react-icons/fa6';
+
 import { AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Avatar } from '@/components/ui/avatar';
 

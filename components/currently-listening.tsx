@@ -1,4 +1,5 @@
 import Image from 'next/image';
+
 import { getCurrentlyPlaying } from '@/lib/spotify';
 import { FaHeadphones } from 'react-icons/fa';
 
