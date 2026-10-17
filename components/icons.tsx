@@ -1,4 +1,5 @@
 import {
+  FaAmazon,
   FaCloud,
   FaCode,
   FaEnvelope,
@@ -12,12 +13,12 @@ import {
   FaWater,
 } from 'react-icons/fa';
 import { FaHouse } from 'react-icons/fa6';
+import { RiOpenaiFill } from 'react-icons/ri';
 import {
-  SiAmazon,
   SiAnthropic,
   SiBitbucket,
   SiClaude,
-  SiCss3,
+  SiCss,
   SiDocker,
   SiFastapi,
   SiGatsby,
@@ -32,7 +33,6 @@ import {
   SiMysql,
   SiNextdotjs,
   SiNodedotjs,
-  SiOpenai,
   SiPhp,
   SiPostgresql,
   SiPython,
@@ -66,8 +66,8 @@ export const Icons = {
   nextjs: SiNextdotjs,
   gatsby: SiGatsby,
   html5: SiHtml5,
-  css3: SiCss3,
-  aws: SiAmazon,
+  css3: SiCss,
+  aws: FaAmazon,
   docker: SiDocker,
   githubactions: SiGithubactions,
   bitbucketpipelines: SiBitbucket,
@@ -88,7 +88,7 @@ export const Icons = {
   postgresql: SiPostgresql,
   redis: SiRedis,
   shadcn: SiShadcnui,
-  openai: SiOpenai,
+  openai: RiOpenaiFill,
   rq: FaRedo,
   claude: SiClaude,
   anthropic: SiAnthropic,
