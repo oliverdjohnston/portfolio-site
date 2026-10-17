@@ -48,13 +48,11 @@ export const metadata: Metadata = {
     siteName: personalData.name,
     title,
     description: personalData.seoDescription,
-    images: [{ url: personalData.avatarUrl, width: 1080, height: 1080, alt: personalData.name }],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title,
     description: personalData.seoDescription,
-    images: [personalData.avatarUrl],
   },
   icons: {
     icon: '/icons/icon.svg',
@@ -73,22 +71,29 @@ export const metadata: Metadata = {
   },
 };
 
-const personJsonLd = {
+const contactLinks = navbarData.filter((item) => item.type === 'contact');
+
+const profilePageJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: personalData.name,
-  jobTitle: 'Full Stack Web Developer',
-  description: personalData.seoDescription,
+  '@type': 'ProfilePage',
   url: baseUrl,
-  image: `${baseUrl}${personalData.avatarUrl}`,
-  worksFor: { '@type': 'Organization', name: 'Flaunt Digital', url: 'https://flauntdigital.com' },
-  knowsAbout: skillsData.flatMap((group) => group.skills.map((skill) => skill.name)),
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Leeds',
-    addressCountry: 'GB',
+  mainEntity: {
+    '@type': 'Person',
+    name: personalData.name,
+    email: contactLinks.find((item) => item.href.startsWith('mailto:'))?.href.replace('mailto:', ''),
+    jobTitle: 'Full Stack Web Developer',
+    description: personalData.seoDescription,
+    url: baseUrl,
+    image: `${baseUrl}${personalData.avatarUrl}`,
+    worksFor: { '@type': 'Organization', name: 'Flaunt Digital', url: 'https://flauntdigital.com' },
+    knowsAbout: skillsData.flatMap((group) => group.skills.map((skill) => skill.name)),
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Leeds',
+      addressCountry: 'GB',
+    },
+    sameAs: contactLinks.filter((item) => item.href.startsWith('http')).map((item) => item.href),
   },
-  sameAs: navbarData.filter((item) => item.type === 'contact' && item.href.startsWith('http')).map((item) => item.href),
 };
 
 export default function RootLayout({
@@ -102,7 +107,7 @@ export default function RootLayout({
         <noscript>
           <style>{'[data-intro],[data-intro-dock]{opacity:1!important}'}</style>
         </noscript>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageJsonLd) }} />
         <div className="mx-auto min-h-screen max-w-2xl px-6 py-12 font-sans antialiased sm:py-24">
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
             {children}

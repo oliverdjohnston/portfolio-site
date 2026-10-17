@@ -10,7 +10,7 @@ export async function CurrentGame() {
     : null;
 
   return (
-    <section id="current-game">
+    <section id="current-game" data-nosnippet>
       <div className="pb-3">
         <h2 className="text-primary flex items-center gap-2 text-lg font-bold">
           <FaGamepad className="size-5" />

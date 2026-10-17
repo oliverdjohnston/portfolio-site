@@ -21,7 +21,7 @@ export async function CurrentlyListening() {
   const track = await getCurrentlyPlaying();
 
   return (
-    <section id="currently-listening">
+    <section id="currently-listening" data-nosnippet>
       <div className="pb-3">
         <h2 className="text-primary flex items-center gap-2 text-lg font-bold">
           <FaHeadphones className="size-5" />

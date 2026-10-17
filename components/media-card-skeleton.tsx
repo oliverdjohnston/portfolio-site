@@ -5,7 +5,7 @@ export function MediaCardSkeleton({ icon: Icon, label }: { icon: IconType; label
   const Heading = label ? 'h2' : 'div';
 
   return (
-    <section aria-busy="true" aria-label={label ? `${label} loading` : 'Loading'}>
+    <section data-nosnippet aria-busy="true" aria-label={label ? `${label} loading` : 'Loading'}>
       <div className="pb-3">
         <Heading className="text-primary flex items-center gap-2 text-lg font-bold">
           <Icon className="size-5" />
