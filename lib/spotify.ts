@@ -1,8 +1,20 @@
 import { cacheLife, cacheTag } from 'next/cache';
 
-const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
-const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
+export const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
+export const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
+export const SPOTIFY_REDIRECT_URI = process.env.SPOTIFY_REDIRECT_URI ?? '';
 const SPOTIFY_REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN;
+
+export function requestSpotifyToken(body: URLSearchParams) {
+  return fetch('https://accounts.spotify.com/api/token', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      Authorization: `Basic ${Buffer.from(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`).toString('base64')}`,
+    },
+    body,
+  });
+}
 
 interface TokenCache {
   access_token: string;
@@ -21,14 +33,9 @@ async function getSpotifyUserAccessToken(): Promise<string | null> {
   }
 
   try {
-    const response = await fetch('https://accounts.spotify.com/api/token', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        Authorization: `Basic ${Buffer.from(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`).toString('base64')}`,
-      },
-      body: `grant_type=refresh_token&refresh_token=${SPOTIFY_REFRESH_TOKEN}`,
-    });
+    const response = await requestSpotifyToken(
+      new URLSearchParams({ grant_type: 'refresh_token', refresh_token: SPOTIFY_REFRESH_TOKEN })
+    );
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -52,7 +59,6 @@ async function getSpotifyUserAccessToken(): Promise<string | null> {
 export interface Track {
   name: string;
   artist: string;
-  album: string;
   image: string | null;
   url: string;
   is_playing: boolean;
@@ -62,7 +68,6 @@ interface SpotifyTrack {
   name: string;
   artists: Array<{ name: string }>;
   album: {
-    name: string;
     images: Array<{ url: string }>;
   };
   external_urls: {
@@ -74,8 +79,7 @@ function toTrack(track: SpotifyTrack, isPlaying: boolean): Track {
   return {
     name: track.name,
     artist: track.artists.map((a) => a.name).join(', '),
-    album: track.album.name,
-    image: track.album.images[0]?.url || track.album.images[1]?.url || null,
+    image: track.album.images[0]?.url ?? null,
     url: track.external_urls.spotify,
     is_playing: isPlaying,
   };

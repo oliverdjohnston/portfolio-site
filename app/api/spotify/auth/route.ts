@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 
-const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
-const SPOTIFY_REDIRECT_URI = process.env.SPOTIFY_REDIRECT_URI as string;
+import { SPOTIFY_CLIENT_ID, SPOTIFY_REDIRECT_URI } from '@/lib/spotify';
 
 export async function GET() {
   if (!SPOTIFY_CLIENT_ID) {

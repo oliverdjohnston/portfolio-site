@@ -3,7 +3,7 @@ import { cacheLife, cacheTag } from 'next/cache';
 const STEAM_API_KEY = process.env.STEAM_API_KEY;
 const STEAM_ID = process.env.STEAM_ID;
 
-export interface Game {
+interface SteamGame {
   appid: number;
   name: string;
   img_icon_url: string;
@@ -12,9 +12,13 @@ export interface Game {
 
 interface SteamResponse {
   response: {
-    game_count: number;
-    games: Game[];
+    games: SteamGame[];
   };
+}
+
+export interface Game {
+  name: string;
+  image: string;
 }
 
 export async function getRecentGame(): Promise<Game | null> {
@@ -28,7 +32,7 @@ export async function getRecentGame(): Promise<Game | null> {
 
   try {
     const response = await fetch(
-      `https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${STEAM_API_KEY}&steamid=${STEAM_ID}&include_appinfo=1&include_played_free_games=1&include_extended_appinfo=1`
+      `https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${STEAM_API_KEY}&steamid=${STEAM_ID}&include_appinfo=1&include_played_free_games=1`
     );
 
     if (!response.ok) {
@@ -45,7 +49,14 @@ export async function getRecentGame(): Promise<Game | null> {
       current.rtime_last_played > prev.rtime_last_played ? current : prev
     );
 
-    return mostRecent.rtime_last_played > 0 ? mostRecent : null;
+    if (mostRecent.rtime_last_played === 0) {
+      return null;
+    }
+
+    return {
+      name: mostRecent.name,
+      image: `https://media.steampowered.com/steamcommunity/public/images/apps/${mostRecent.appid}/${mostRecent.img_icon_url}.jpg`,
+    };
   } catch (error) {
     console.error('Error fetching current game:', error);
     return null;

@@ -1,8 +1,6 @@
 import { NextResponse } from 'next/server';
 
-const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
-const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
-const SPOTIFY_REDIRECT_URI = process.env.SPOTIFY_REDIRECT_URI as string;
+import { requestSpotifyToken, SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REDIRECT_URI } from '@/lib/spotify';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -22,18 +20,13 @@ export async function GET(request: Request) {
   }
 
   try {
-    const response = await fetch('https://accounts.spotify.com/api/token', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        Authorization: `Basic ${Buffer.from(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`).toString('base64')}`,
-      },
-      body: new URLSearchParams({
+    const response = await requestSpotifyToken(
+      new URLSearchParams({
         grant_type: 'authorization_code',
         code,
         redirect_uri: SPOTIFY_REDIRECT_URI,
-      }),
-    });
+      })
+    );
 
     if (!response.ok) {
       const errorText = await response.text();

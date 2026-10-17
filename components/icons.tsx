@@ -1,20 +1,7 @@
-import {
-  FaAmazon,
-  FaCloud,
-  FaCode,
-  FaEnvelope,
-  FaFlask,
-  FaGithub,
-  FaLinkedin,
-  FaMoon,
-  FaRedo,
-  FaSun,
-  FaWater,
-} from 'react-icons/fa';
+import { FaAmazon, FaCloud, FaCode, FaEnvelope, FaGithub, FaLinkedin, FaRedo } from 'react-icons/fa';
 import { FaArrowUpRightFromSquare, FaHouse } from 'react-icons/fa6';
 import { RiOpenaiFill } from 'react-icons/ri';
 import {
-  SiAnthropic,
   SiBitbucket,
   SiClaude,
   SiCss,
@@ -49,8 +36,6 @@ export const Icons = {
   linkedin: FaLinkedin,
   email: FaEnvelope,
   home: FaHouse,
-  sun: FaSun,
-  moon: FaMoon,
   php: SiPhp,
   laravel: SiLaravel,
   javascript: SiJavascript,
@@ -77,10 +62,6 @@ export const Icons = {
   sentry: SiSentry,
   restapis: FaCloud,
   cicd: FaRedo,
-  agile: FaRedo,
-  waterfall: FaWater,
-  oop: FaCloud,
-  tdd: FaFlask,
   sql: FaCloud,
   external: FaArrowUpRightFromSquare,
   fastapi: SiFastapi,
@@ -90,7 +71,6 @@ export const Icons = {
   openai: RiOpenaiFill,
   rq: FaRedo,
   claude: SiClaude,
-  anthropic: SiAnthropic,
   copilot: SiGithubcopilot,
   supabase: SiSupabase,
   opencode: FaCode,

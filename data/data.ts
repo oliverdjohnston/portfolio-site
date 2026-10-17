@@ -1,5 +1,7 @@
 import { Icons } from '@/components/icons';
 
+export const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000';
+
 export const personalData = {
   name: 'Oliver Dean Johnston',
   avatarUrl: '/images/me.jpg',
@@ -34,7 +36,6 @@ export const navbarData = [
 export const experiencesData = [
   {
     company: 'Flaunt Digital',
-    location: 'Leeds',
     title: 'Apprentice Web Developer',
     logoUrl: '/images/flaunt-digital.jpg',
     start: 'Oct 2023',
@@ -47,7 +48,6 @@ export const experiencesData = [
   },
   {
     company: 'Flaunt Digital',
-    location: 'Leeds',
     title: 'Junior Web Developer',
     logoUrl: '/images/flaunt-digital.jpg',
     start: 'Oct 2024',
@@ -162,7 +162,6 @@ export const projectsData = [
   {
     title: 'Family Share Dashboard',
     dates: '2025',
-    active: true,
     description:
       'A dashboard I built for my group of friends to track our Steam Family Sharing libraries and figure out who should buy the next game.',
     detailedDescription: `I built this for my friends as we share games through Steam Family Sharing. We kept having the same argument about whose turn it was to buy the next game, so I made a dashboard that syncs with Steam's API to pull everyone's libraries and tracks what we've spent.
@@ -189,7 +188,6 @@ export const projectsData = [
   {
     title: 'Trump Tracker',
     dates: '2026',
-    active: true,
     description:
       "Trump Tracker ingests Donald Trump's public comments from YouTube captions, Factba.se transcripts and Truth Social. It uses an LLM to detect company mentions and confirm he was the speaker, then captures Polygon.io stock prices at fixed intervals afterward to measure whether his remarks move the market.",
     detailedDescription:

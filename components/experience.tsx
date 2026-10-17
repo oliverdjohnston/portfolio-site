@@ -1,5 +1,3 @@
-'use client';
-
 import { experiencesData } from '@/data/data';
 
 import { ResumeItem } from '@/components/resume-item';
@@ -11,17 +9,7 @@ export function Experience() {
       <h2 className="text-primary mb-4 text-xl font-bold">Work Experience</h2>
       <Accordion type="single" collapsible className="w-full">
         {experiencesData.toReversed().map((experience) => (
-          <ResumeItem
-            key={`${experience.company}-${experience.start}`}
-            logoUrl={experience.logoUrl}
-            altText={experience.company}
-            company={experience.company}
-            title={experience.title}
-            start={experience.start}
-            end={experience.end}
-            description={experience.description}
-            value={`${experience.company}-${experience.start}`}
-          />
+          <ResumeItem key={`${experience.company}-${experience.start}`} experience={experience} />
         ))}
       </Accordion>
     </section>

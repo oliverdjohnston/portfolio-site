@@ -3,20 +3,19 @@ import localFont from 'next/font/local';
 
 import './globals.css';
 
-import { navbarData, personalData, skillsData } from '@/data/data';
+import { ThemeProvider } from 'next-themes';
+
+import { baseUrl, navbarData, personalData, skillsData } from '@/data/data';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import { Navbar } from '@/components/navbar';
-import { ThemeProvider } from '@/components/theme-provider';
 
 const supreme = localFont({
   src: '../public/fonts/Supreme-Variable.woff2',
   variable: '--font-supreme',
   display: 'swap',
 });
-
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000';
 
 const title = `${personalData.name} | Full Stack Web Developer`;
 

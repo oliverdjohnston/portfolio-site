@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -22,6 +20,25 @@ const linkClass = cn(
   buttonVariants({ variant: 'outline', size: 'sm' }),
   'hover:border-primary/50 hover:bg-primary/10 hover:text-primary dark:hover:border-primary/50 dark:hover:bg-primary/15 duration-200 ease-hover'
 );
+
+function ProjectLinks({ links, className }: { links: (typeof projectsData)[number]['links']; className?: string }) {
+  return (
+    <ul className={cn('flex flex-wrap gap-3', className)}>
+      {links.map((link) => {
+        const badgeInfo = badgeConfig[link.type];
+        const Icon = badgeInfo.icon;
+        return (
+          <li key={link.href}>
+            <Link href={link.href} target="_blank" rel="noopener noreferrer" className={linkClass}>
+              <Icon aria-hidden className={link.type === 'external' ? 'size-3' : 'size-3.5'} />
+              <span>{badgeInfo.name}</span>
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
 
 export function Projects() {
   return (
@@ -50,22 +67,7 @@ export function Projects() {
                         <p className="mb-4 text-sm">{project.description}</p>
                       </div>
                       {project.links && project.links.length > 0 && (
-                        <ul className="relative z-10 flex flex-wrap gap-3">
-                          {project.links.map((link) => {
-                            const badgeInfo = badgeConfig[link.type as keyof typeof badgeConfig];
-                            const Icon = badgeInfo?.icon;
-                            return (
-                              <li key={link.href}>
-                                <Link href={link.href} target="_blank" rel="noopener noreferrer" className={linkClass}>
-                                  {Icon && (
-                                    <Icon aria-hidden className={link.type === 'external' ? 'size-3' : 'size-3.5'} />
-                                  )}
-                                  <span>{badgeInfo?.name || link.type}</span>
-                                </Link>
-                              </li>
-                            );
-                          })}
-                        </ul>
+                        <ProjectLinks links={project.links} className="relative z-10" />
                       )}
                     </div>
                     <div className="relative hidden aspect-square w-full overflow-hidden md:block md:w-1/2">
@@ -137,22 +139,7 @@ export function Projects() {
                   {project.links && project.links.length > 0 && (
                     <div>
                       <h3 className="mb-2 text-sm font-semibold">Links</h3>
-                      <ul className="flex flex-wrap gap-3">
-                        {project.links.map((link) => {
-                          const badgeInfo = badgeConfig[link.type as keyof typeof badgeConfig];
-                          const Icon = badgeInfo?.icon;
-                          return (
-                            <li key={link.href}>
-                              <Link href={link.href} target="_blank" rel="noopener noreferrer" className={linkClass}>
-                                {Icon && (
-                                  <Icon aria-hidden className={link.type === 'external' ? 'size-3' : 'size-3.5'} />
-                                )}
-                                <span>{badgeInfo?.name || link.type}</span>
-                              </Link>
-                            </li>
-                          );
-                        })}
-                      </ul>
+                      <ProjectLinks links={project.links} />
                     </div>
                   )}
                 </div>
