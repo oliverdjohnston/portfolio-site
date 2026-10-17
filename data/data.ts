@@ -2,10 +2,12 @@ import { Icons } from '@/components/icons';
 
 export const personalData = {
   name: 'Oliver Dean Johnston',
-  avatarUrl: '/images/me.avif',
+  avatarUrl: '/images/me.jpg',
   initials: 'ODJ',
   location: 'Leeds, United Kingdom',
   description: 'Full Stack Web Developer at Flaunt Digital',
+  seoDescription:
+    'Oliver Dean Johnston is a full stack web developer at Flaunt Digital in Leeds, building fast, accessible apps with Next.js, React, TypeScript and Laravel.',
   summary: (): string => {
     const currentYear = new Date().getFullYear();
     const startYear = 2023;
@@ -26,7 +28,7 @@ export const navbarData = [
     icon: Icons.linkedin,
     label: 'LinkedIn',
   },
-  { type: 'contact' as const, href: 'mailto:oliverdeanjohnson@gmail.com', icon: Icons.email, label: 'Email' },
+  { type: 'contact' as const, href: 'mailto:oliverdeanjohnston@gmail.com', icon: Icons.email, label: 'Email' },
 ] as const;
 
 export const experiencesData = [
@@ -229,26 +231,9 @@ export const projectsData = [
 
 export const skillsData = [
   {
-    category: 'Backend',
-    skills: [
-      { name: 'Node.js', icon: 'nodejs' },
-      { name: 'TypeScript', icon: 'typescript' },
-      { name: 'Laravel', icon: 'laravel' },
-      { name: 'PHP', icon: 'php' },
-      { name: 'Python', icon: 'python' },
-      { name: 'SQL', icon: 'sql' },
-      { name: 'MySQL', icon: 'mysql' },
-      { name: 'REST APIs', icon: 'restapis' },
-      { name: 'GraphQL', icon: 'graphql' },
-      { name: 'FastAPI', icon: 'fastapi' },
-      { name: 'PostgreSQL', icon: 'postgresql' },
-      { name: 'Redis', icon: 'redis' },
-      { name: 'Supabase', icon: 'supabase' },
-    ],
-  },
-  {
     category: 'Frontend',
     skills: [
+      { name: 'TypeScript', icon: 'typescript' },
       { name: 'React.js', icon: 'react' },
       { name: 'Next.js', icon: 'nextjs' },
       { name: 'Inertia.js', icon: 'inertia' },
@@ -260,23 +245,40 @@ export const skillsData = [
     ],
   },
   {
+    category: 'Backend',
+    skills: [
+      { name: 'Node.js', icon: 'nodejs' },
+      { name: 'PHP', icon: 'php' },
+      { name: 'Laravel', icon: 'laravel' },
+      { name: 'Python', icon: 'python' },
+      { name: 'FastAPI', icon: 'fastapi' },
+      { name: 'REST APIs', icon: 'restapis' },
+      { name: 'GraphQL', icon: 'graphql' },
+      { name: 'SQL', icon: 'sql' },
+      { name: 'MySQL', icon: 'mysql' },
+      { name: 'PostgreSQL', icon: 'postgresql' },
+      { name: 'Redis', icon: 'redis' },
+      { name: 'Supabase', icon: 'supabase' },
+    ],
+  },
+  {
     category: 'DevOps',
     skills: [
       { name: 'AWS', icon: 'aws' },
       { name: 'Docker', icon: 'docker' },
-      { name: 'GitHub Actions', icon: 'githubactions' },
+      { name: 'Linux', icon: 'linux' },
       { name: 'CI/CD', icon: 'cicd' },
+      { name: 'GitHub Actions', icon: 'githubactions' },
       { name: 'BitBucket Pipelines', icon: 'bitbucketpipelines' },
+      { name: 'Laravel Forge', icon: 'laravelforge' },
     ],
   },
   {
     category: 'Tools',
     skills: [
-      { name: 'Linux', icon: 'linux' },
-      { name: 'Sentry', icon: 'sentry' },
       { name: 'GitHub', icon: 'github' },
       { name: 'BitBucket', icon: 'bitbucket' },
-      { name: 'Laravel Forge', icon: 'laravelforge' },
+      { name: 'Sentry', icon: 'sentry' },
       { name: 'Laravel Valet', icon: 'laravelvalet' },
       { name: 'OpenAI', icon: 'openai' },
       { name: 'Claude', icon: 'claude' },

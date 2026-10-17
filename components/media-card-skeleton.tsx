@@ -1,13 +1,16 @@
 import type { IconType } from 'react-icons';
 
 export function MediaCardSkeleton({ icon: Icon, label }: { icon: IconType; label?: string }) {
+  // no label yet means an empty heading so render a plain div until the real card appears
+  const Heading = label ? 'h2' : 'div';
+
   return (
     <section aria-busy="true" aria-label={label ? `${label} loading` : 'Loading'}>
       <div className="pb-3">
-        <h2 className="text-primary flex items-center gap-2 text-lg font-bold">
+        <Heading className="text-primary flex items-center gap-2 text-lg font-bold">
           <Icon className="size-5" />
           {label ?? <span className="bg-muted h-5 w-36 animate-pulse rounded" />}
-        </h2>
+        </Heading>
       </div>
       <div className="flex items-center gap-3 pt-0">
         <div className="bg-muted size-12 shrink-0 animate-pulse rounded" />

@@ -10,9 +10,10 @@ interface AvatarContentProps {
   src?: string;
   initials?: string;
   alt?: string;
+  preload?: boolean;
 }
 
-function AvatarContent({ src, initials, alt }: AvatarContentProps) {
+function AvatarContent({ src, initials, alt, preload }: AvatarContentProps) {
   const [imageError, setImageError] = React.useState(false);
   const hasImage = src && !imageError;
 
@@ -22,6 +23,7 @@ function AvatarContent({ src, initials, alt }: AvatarContentProps) {
         src={src}
         alt={alt || 'Avatar'}
         fill
+        preload={preload}
         sizes="112px"
         className="object-cover"
         onError={() => setImageError(true)}
@@ -42,10 +44,11 @@ interface AvatarProps extends React.ComponentProps<'span'> {
   initials?: string;
   size?: number;
   alt?: string;
+  preload?: boolean;
 }
 
 const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(
-  ({ src, square = false, initials, size, alt, className, ...props }, ref) => {
+  ({ src, square = false, initials, size, alt, preload, className, ...props }, ref) => {
     return (
       <span
         ref={ref}
@@ -57,7 +60,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(
         style={size ? { width: size, height: size } : undefined}
         {...props}
       >
-        <AvatarContent src={src} initials={initials} alt={alt} />
+        <AvatarContent src={src} initials={initials} alt={alt} preload={preload} />
       </span>
     );
   }

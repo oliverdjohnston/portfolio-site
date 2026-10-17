@@ -3,7 +3,7 @@ import localFont from 'next/font/local';
 
 import './globals.css';
 
-import { navbarData, personalData } from '@/data/data';
+import { navbarData, personalData, skillsData } from '@/data/data';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     default: title,
     template: `%s | ${personalData.name}`,
   },
-  description: personalData.description,
+  description: personalData.seoDescription,
   keywords: [
     'Oliver Dean Johnston',
     'Full Stack Developer',
@@ -47,13 +47,13 @@ export const metadata: Metadata = {
     url: '/',
     siteName: personalData.name,
     title,
-    description: personalData.description,
-    images: [{ url: personalData.avatarUrl, alt: personalData.name }],
+    description: personalData.seoDescription,
+    images: [{ url: personalData.avatarUrl, width: 1080, height: 1080, alt: personalData.name }],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     title,
-    description: personalData.description,
+    description: personalData.seoDescription,
     images: [personalData.avatarUrl],
   },
   icons: {
@@ -78,8 +78,11 @@ const personJsonLd = {
   '@type': 'Person',
   name: personalData.name,
   jobTitle: 'Full Stack Web Developer',
+  description: personalData.seoDescription,
   url: baseUrl,
   image: `${baseUrl}${personalData.avatarUrl}`,
+  worksFor: { '@type': 'Organization', name: 'Flaunt Digital', url: 'https://flauntdigital.com' },
+  knowsAbout: skillsData.flatMap((group) => group.skills.map((skill) => skill.name)),
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Leeds',

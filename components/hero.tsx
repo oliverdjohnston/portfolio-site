@@ -24,6 +24,7 @@ export function Hero() {
           src={personalData.avatarUrl}
           initials={personalData.initials}
           alt={personalData.name}
+          preload
           data-intro="hero"
           className="border-secondary size-24 shrink-0 border-2 sm:size-28"
         />
