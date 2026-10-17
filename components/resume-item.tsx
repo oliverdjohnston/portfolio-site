@@ -34,7 +34,7 @@ export function ResumeItem({ logoUrl, altText, company, title, start, end, descr
             <div className="flex min-w-0 grow items-center justify-between gap-x-2">
               <div className="flex min-w-0 flex-col">
                 <div className="flex items-center gap-1.5">
-                  <h3 className="text-xs leading-none font-semibold sm:text-sm">{company}</h3>
+                  <span className="text-xs leading-none font-semibold sm:text-sm">{company}</span>
                   <FaChevronRight
                     className={cn(
                       'pointer-events-none size-2.5 shrink-0 transition-[opacity,rotate] duration-200 ease-out',
