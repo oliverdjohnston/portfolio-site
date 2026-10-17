@@ -274,6 +274,7 @@ export const skillsData = [
     skills: [
       { name: 'Linux', icon: 'linux' },
       { name: 'Sentry', icon: 'sentry' },
+      { name: 'GitHub', icon: 'github' },
       { name: 'BitBucket', icon: 'bitbucket' },
       { name: 'Laravel Forge', icon: 'laravelforge' },
       { name: 'Laravel Valet', icon: 'laravelvalet' },

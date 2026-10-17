@@ -37,25 +37,23 @@ export function ResumeItem({ logoUrl, altText, company, title, start, end, descr
                   <h3 className="text-xs leading-none font-semibold sm:text-sm">{company}</h3>
                   <FaChevronRight
                     className={cn(
-                      'pointer-events-none size-2.5 shrink-0 transition-all duration-200',
+                      'pointer-events-none size-2.5 shrink-0 transition-[opacity,rotate] duration-200 ease-out',
                       'text-black dark:text-white',
                       'opacity-0 group-hover:opacity-100'
                     )}
                   />
                 </div>
-                <div className="text-muted-foreground mt-1 font-sans text-xs">{title}</div>
+                <p className="text-muted-foreground mt-1 font-sans text-xs">{title}</p>
               </div>
-              <div className="text-muted-foreground shrink-0 text-right text-xs tabular-nums sm:text-sm">{period}</div>
+              <p className="text-muted-foreground shrink-0 text-right text-xs tabular-nums sm:text-sm">{period}</p>
             </div>
           </div>
         </AccordionTrigger>
-        <AccordionContent className="transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
+        <AccordionContent>
           <div className="mt-2 ml-16">
             <ul className="ml-4 list-outside list-disc space-y-1 text-xs sm:text-sm">
               {description.map((item, idx) => (
-                <li key={idx} className="transition-opacity duration-300">
-                  {item}
-                </li>
+                <li key={idx}>{item}</li>
               ))}
             </ul>
           </div>
@@ -72,9 +70,9 @@ export function ResumeItem({ logoUrl, altText, company, title, start, end, descr
       <div className="flex min-w-0 grow items-center justify-between gap-x-2">
         <div className="flex min-w-0 flex-col">
           <h3 className="text-xs leading-none font-semibold sm:text-sm">{company}</h3>
-          <div className="text-muted-foreground mt-1 font-sans text-xs">{title}</div>
+          <p className="text-muted-foreground mt-1 font-sans text-xs">{title}</p>
         </div>
-        <div className="text-muted-foreground shrink-0 text-right text-xs tabular-nums sm:text-sm">{period}</div>
+        <p className="text-muted-foreground shrink-0 text-right text-xs tabular-nums sm:text-sm">{period}</p>
       </div>
     </div>
   );

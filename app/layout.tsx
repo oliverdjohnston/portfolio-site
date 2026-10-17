@@ -56,6 +56,10 @@ export const metadata: Metadata = {
     description: personalData.description,
     images: [personalData.avatarUrl],
   },
+  icons: {
+    icon: '/icons/icon.svg',
+    apple: '/icons/apple-icon.png',
+  },
   robots: {
     index: true,
     follow: true,
@@ -66,9 +70,6 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-  },
-  icons: {
-    icon: '/images/me.avif',
   },
 };
 
@@ -95,6 +96,9 @@ export default function RootLayout({
   return (
     <html lang="en-GB" suppressHydrationWarning>
       <body className={`${supreme.variable}`}>
+        <noscript>
+          <style>{'[data-intro],[data-intro-dock]{opacity:1!important}'}</style>
+        </noscript>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
         <div className="mx-auto min-h-screen max-w-2xl px-6 py-12 font-sans antialiased sm:py-24">
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>

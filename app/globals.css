@@ -3,6 +3,11 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-hover: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
 html {
   scrollbar-gutter: stable;
 }
@@ -188,23 +193,25 @@ body[data-scroll-locked] {
   }
 }
 
-/* Hero load reveal — same curve/duration/distance as the <RevealItem> cascade */
-@keyframes reveal-up {
+/* hidden until the GSAP intro timeline takes over */
+[data-intro],
+[data-intro-dock] {
+  opacity: 0;
+}
+
+@keyframes icon-in {
   from {
     opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+    scale: 0.5;
+    rotate: -90deg;
+    filter: blur(4px);
   }
 }
 
-.animate-reveal {
-  animation: reveal-up 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+.animate-icon-in {
+  animation: icon-in 300ms var(--ease-out);
 }
 
-/* Now-playing equalizer bars */
 @keyframes equalize {
   0%,
   100% {
@@ -220,12 +227,37 @@ body[data-scroll-locked] {
   animation: equalize 900ms ease-in-out infinite;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .animate-reveal {
-    animation: none;
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+    filter: blur(4px);
   }
-  .equalizer-bar {
-    animation: none;
-    transform: scaleY(0.6);
+}
+
+@keyframes dialog-out {
+  to {
+    opacity: 0;
+    transform: scale(0.97);
   }
+}
+
+.dialog-content[data-state='open'] {
+  animation: dialog-in 280ms var(--ease-out);
+}
+
+.dialog-content[data-state='closed'] {
+  animation: dialog-out 150ms var(--ease-out);
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.stagger-in > * {
+  animation: rise-in 400ms var(--ease-out) both;
+  animation-delay: calc((sibling-index() - 1) * 30ms);
 }

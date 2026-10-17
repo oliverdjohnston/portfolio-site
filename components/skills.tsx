@@ -1,5 +1,3 @@
-'use client';
-
 import { skillsData } from '@/data/data';
 
 import { Icons } from '@/components/icons';
@@ -20,19 +18,21 @@ export function Skills() {
         </TabsList>
         {skillsData.map((category) => (
           <TabsContent key={category.category} value={category.category}>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <ul className="stagger-in grid grid-cols-2 gap-3 sm:grid-cols-4">
               {category.skills.map((skill) => {
                 const Icon = Icons[skill.icon as keyof typeof Icons];
                 return (
-                  <Card key={skill.name} className="hover:border-primary/50 hover:bg-accent/50 transition-all">
-                    <CardContent className="flex min-h-[100px] flex-col items-center justify-center gap-2 p-4">
-                      {Icon && <Icon className="size-8 shrink-0" />}
-                      <span className="text-center text-sm leading-tight font-medium">{skill.name}</span>
-                    </CardContent>
-                  </Card>
+                  <li key={skill.name}>
+                    <Card className="hover:border-primary/50 hover:bg-accent/50 ease-hover h-full transition-colors duration-200">
+                      <CardContent className="flex min-h-25 flex-col items-center justify-center gap-2 p-4">
+                        {Icon && <Icon aria-hidden className="size-8 shrink-0" />}
+                        <span className="text-center text-sm leading-tight font-medium">{skill.name}</span>
+                      </CardContent>
+                    </Card>
+                  </li>
                 );
               })}
-            </div>
+            </ul>
           </TabsContent>
         ))}
       </Tabs>

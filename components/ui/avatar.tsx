@@ -17,7 +17,16 @@ function AvatarContent({ src, initials, alt }: AvatarContentProps) {
   const hasImage = src && !imageError;
 
   if (hasImage) {
-    return <Image src={src} alt={alt || 'Avatar'} fill className="object-cover" onError={() => setImageError(true)} />;
+    return (
+      <Image
+        src={src}
+        alt={alt || 'Avatar'}
+        fill
+        sizes="112px"
+        className="object-cover"
+        onError={() => setImageError(true)}
+      />
+    );
   }
 
   if (initials) {

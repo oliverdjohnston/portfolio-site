@@ -5,14 +5,13 @@ import {
   FaEnvelope,
   FaFlask,
   FaGithub,
-  FaGlobe,
   FaLinkedin,
   FaMoon,
   FaRedo,
   FaSun,
   FaWater,
 } from 'react-icons/fa';
-import { FaHouse } from 'react-icons/fa6';
+import { FaArrowUpRightFromSquare, FaHouse } from 'react-icons/fa6';
 import { RiOpenaiFill } from 'react-icons/ri';
 import {
   SiAnthropic,
@@ -83,7 +82,7 @@ export const Icons = {
   oop: FaCloud,
   tdd: FaFlask,
   sql: FaCloud,
-  external: FaGlobe,
+  external: FaArrowUpRightFromSquare,
   fastapi: SiFastapi,
   postgresql: SiPostgresql,
   redis: SiRedis,
