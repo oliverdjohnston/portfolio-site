@@ -51,7 +51,7 @@ export const experiencesData = [
     title: 'Junior Web Developer',
     logoUrl: '/images/flaunt-digital.jpg',
     start: 'Oct 2024',
-    end: 'Present',
+    end: 'Oct 2026',
     description: [
       'Redesigned internal tools using Laravel, Blade and Tailwind CSS, improving responsiveness and user experience.',
       'Developed Google Apps Script automations integrating with services such as ActiveCollab and the Google Ads API to improve internal efficiency.',
@@ -59,6 +59,21 @@ export const experiencesData = [
       'Managed deployments and local development environments using Laravel Forge and Laravel Valet, with Netlify and Vercel for client projects.',
       'Migrated internal tools from AWS to Laravel Forge.',
       'Worked with a variety of members within the company such as designers, senior developers, project managers and members of the SEO team.',
+    ],
+  },
+  {
+    company: 'Flaunt Digital',
+    title: 'Web Developer',
+    logoUrl: '/images/flaunt-digital.jpg',
+    start: 'Oct 2026',
+    end: 'Present',
+    description: [
+      'Leading the rebuild of the Flaunt Digital website with Astro and EmDash CMS.',
+      'Lead developer on a client website, responsible for technical decisions, deployments and hosting on Vercel.',
+      'Work directly with the client over Slack and fortnightly Google Meet calls.',
+      'Built Prism, an internal SEO and GEO audit tool using Laravel, Inertia, React and TypeScript. It crawls websites, pulls in Ahrefs and Lighthouse data, and uses AI to produce scored reports with page level fixes and competitor comparisons.',
+      'Use AI coding tools every day, working with agent skills and MCP servers, and keep up with new ones as they come out.',
+      'Review pull requests for the development team.',
     ],
   },
 ] as const;
